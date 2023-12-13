@@ -1,86 +1,56 @@
 package Entities;
 
+import java.util.Date;
+
 import DataBase.Data;
 import People.Employee;
 import People.Manager;
 
-/**
-* @generated
-*/
-public class Message extends Employee {
-    
-    /**
-    * @generated
-    */
-    private Employee messageTo;
-    
+//each empolyee can send massages to each other
 
+public class Message{
+    
+    private Employee recipientEmployee;
+    
     private String text;
 
     private Date messageDate;
-    
    
-    private Manager manager;
-
-    public boolean approveStudentRegistration() {
-        //TODO
-        return false;
+    
+    public Message(Employee recipientEmployee, String text) { //Constructors
+    	
+		this.recipientEmployee = recipientEmployee;
+		this.text = text;
+		this.messageDate = new Date();
+	}
+    public Message() {  
+    	messageDate = new Date();
     }
     
-    /**
-    * @generated
-    */
-    public boolean createStatisticalReports() {
-        //TODO
-        return false;
-    }
-    
-    /**
-    * @generated
-    */
-    public boolean manageNews() {
-        //TODO
-        return false;
-    }
-    
-    /**
-    * @generated
-    */
-    public boolean viewInfoAboutStudentsAndTeachers() {
-        //TODO
-        return false;
-    }
-    
-    /**
-    * @generated
-    */
-    public boolean assignCoursesToTeachers() {
-        //TODO
-        return false;
-    }
-    
-    /**
-    * @generated
-    */
-    public boolean viewRequestsByEmployees() {
-        //TODO
-        return false;
-    }
-    
-    /**
-    * @generated
-    */
-    public String getMessage() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public void sendMessage() {
-        //TODO
-    }
+	public String getText() { // Getter FOR TEXT
+		return text;
+	}
+	
+	public boolean changeText(String text) { // Setter for TEXT
+		
+		if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
+			return false;
+		}else
+			this.text= text;
+		
+		return true;
+	}
+	
+	public Employee getRecipientEmploayee() { // GETTER FOR recipient
+		return recipientEmployee;
+	}
+	
+	public void setRecipient(Employee newRecipient) { //SETTER FOR RECIPIENT
+		this.recipientEmployee = newRecipient;
+	}
+	
+	
+	
     
     
 }

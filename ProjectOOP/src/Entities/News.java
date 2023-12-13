@@ -2,8 +2,6 @@ package Entities;
 
 import java.util.Date;
 import java.util.Vector;
-
-import DataBase.Data;
 import People.Manager;
 
 
@@ -58,6 +56,7 @@ public class News {
     	
     	return true;
     }
+    
     public boolean addComment(Comment comment) {
     	if(comment.getText() == null || comment.getText() == "") { // CHECK IF COMMENT IS EMPTY
     		return false;
