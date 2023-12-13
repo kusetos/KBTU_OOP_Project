@@ -1,6 +1,6 @@
 package ResearcherStuff;
 
-import people.GraduateStudent;
+import People.GraduateStudent;
 
 public class ResearcherDecorator extends BasicUserDecorator implements Researcher {
     

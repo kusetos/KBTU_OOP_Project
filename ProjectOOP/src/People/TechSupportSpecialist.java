@@ -1,4 +1,4 @@
-package people;
+package People;
 
 import Entities.Order;
 

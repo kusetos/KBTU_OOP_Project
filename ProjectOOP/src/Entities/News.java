@@ -1,7 +1,7 @@
 package Entities;
 
 import DataBase.Data;
-import people.Manager;
+import People.Manager;
 
 /**
 * @generated

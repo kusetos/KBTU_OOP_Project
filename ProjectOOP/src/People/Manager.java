@@ -1,4 +1,4 @@
-package people;
+package People;
 
 import DataBase.Data;
 import Entities.Message;

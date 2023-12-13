@@ -1,4 +1,4 @@
-package people;
+package People;
 
 import Entities.Journal;
 import Entities.Mark;

@@ -1,7 +1,7 @@
 package Entities;
 
 import DataBase.Data;
-import people.Student;
+import People.Student;
 
 /**
 * @generated

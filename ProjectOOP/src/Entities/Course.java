@@ -1,8 +1,8 @@
 package Entities;
 
 import DataBase.Data;
-import people.Student;
-import people.Teacher;
+import People.Student;
+import People.Teacher;
 
 /**
 * @generated

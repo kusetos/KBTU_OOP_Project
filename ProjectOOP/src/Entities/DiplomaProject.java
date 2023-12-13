@@ -1,7 +1,7 @@
 package Entities;
 
+import People.GraduateStudent;
 import ResearcherStuff.ResearchPaper;
-import people.GraduateStudent;
 
 /**
 * @generated
