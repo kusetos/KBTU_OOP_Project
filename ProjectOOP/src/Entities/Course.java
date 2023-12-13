@@ -32,7 +32,7 @@ public class Course {
     /**
     * @generated
     */
-    private string courseCode;
+    private String courseCode;
     
     /**
     * @generated
