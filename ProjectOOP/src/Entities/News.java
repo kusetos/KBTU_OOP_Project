@@ -1,256 +1,51 @@
 package Entities;
 
+import java.util.Date;
+import java.util.Vector;
+
 import DataBase.Data;
 import People.Manager;
 
-/**
-* @generated
-*/
+
 public class News {
-    
-    /**
-    * @generated
-    */
+
     private Date newsDate;
     
-    /**
-    * @generated
-    */
-    private String titile;
-    
-    /**
-    * @generated
-    */
-    private String text;
-    
-    /**
-    * @generated
-    */
-    private String text;
-    
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    /**
-    * @generated
-    */
-    private Data data;
-    
-    
+    private String title;
 
-    /**
-    * @generated
-    */
-    private Date getNewsDate() {
+    private String text;
+    
+    private Vector<Comment> comments;	    
+
+    public News(Date newsDate, String title, String text, Manager manager) {
+		super();
+		this.newsDate = newsDate;
+		this.title = title;
+		this.text = text;
+	}
+    public News() {
+    	
+    }
+
+	public Date getNewsDate() { //	GETTER for DATE OF NEWS
         return this.newsDate;
     }
     
-    /**
-    * @generated
-    */
-    private Date setNewsDate(Date newsDate) {
-        this.newsDate = newsDate;
+    public String getTitile() { //	GETTER FOR TITLE
+        return this.title;
+    }
+
+    public void setTitile(String titile) { //	SETTER FOR TITLE
+        this.title = titile;
     }
     
-    
-    /**
-    * @generated
-    */
-    private String getTitile() {
-        return this.titile;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setTitile(String titile) {
-        this.titile = titile;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public String getText() {
+    public String getText() {//	   GETTER FOR TEXT
         return this.text;
     }
-    
-    /**
-    * @generated
-    */
-    public String setText(String text) {
+
+    public void setText(String text) {//	SETTER FOR TEXT
         this.text = text;
     }
-    
-    
-    /**
-    * @generated
-    */
-    private String getText() {
-        return this.text;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setText(String text) {
-        this.text = text;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Data getData() {
-        return this.data;
-    }
-    
-    /**
-    * @generated
-    */
-    public Data setData(Data data) {
-        this.data = data;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public Manager setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
     
     
 }

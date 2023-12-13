@@ -1,120 +1,47 @@
 package Entities;
 
+import java.util.Date;
+
 import DataBase.Data;
 import People.TechSupportSpecialist;
+import People.User;
+import Enumerators.ITOrderStatus;
 
-/**
-* @generated
-*/
 public class Order {
     
-    /**
-    * @generated
-    */
-    private ITOrderStatus status;
+
+	private ITOrderStatus status;
     
-    /**
-    * @generated
-    */
     private String description;
     
-    /**
-    * @generated
-    */
     private Date sentTime;
-    
-    
-    /**
-    * @generated
-    */
-    private TechSupportSpecialist techSupportSpecialist;
-    
-    /**
-    * @generated
-    */
-    private Data data;
-    
-    
 
-    /**
-    * @generated
-    */
-    private ITOrderStatus getStatus() {
-        return this.status;
+    
+    public Order(String description, Date sentTime) {
+    	
+    	this.status = ITOrderStatus.NEW;;
+    	this.description = description;
+    	this.sentTime = sentTime;
+
+    }
+    public Order() {
+    	this.status = ITOrderStatus.NEW;
     }
     
-    /**
-    * @generated
-    */
-    private ITOrderStatus setStatus(ITOrderStatus status) {
-        this.status = status;
-    }
     
-    
-    /**
-    * @generated
-    */
-    private String getDescription() {
+    public String getDescription() { // GETTER ТЕКСТ ЗАПРОСА DESCRIPTION
         return this.description;
     }
-    
-    /**
-    * @generated
-    */
-    private String setDescription(String description) {
+
+    public void setDescription(String description) { // SETTER ТЕКСТА
         this.description = description;
     }
-    
-    
-    /**
-    * @generated
-    */
-    private Date getSentTime() {
+
+    public ITOrderStatus getStatus() { // GETTER FOR STATUS
+    	return this.status;
+    }
+    public Date getSentTime() {   // GETTER FOR TIME
         return this.sentTime;
     }
-    
-    /**
-    * @generated
-    */
-    private Date setSentTime(Date sentTime) {
-        this.sentTime = sentTime;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Data getData() {
-        return this.data;
-    }
-    
-    /**
-    * @generated
-    */
-    public Data setData(Data data) {
-        this.data = data;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public TechSupportSpecialist getTechSupportSpecialist() {
-        return this.techSupportSpecialist;
-    }
-    
-    /**
-    * @generated
-    */
-    public TechSupportSpecialist setTechSupportSpecialist(TechSupportSpecialist techSupportSpecialist) {
-        this.techSupportSpecialist = techSupportSpecialist;
-    }
-    
-    
-    
 
-    //                          Operations                                  
-    
-    
 }
