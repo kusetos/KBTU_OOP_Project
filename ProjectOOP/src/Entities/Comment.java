@@ -11,6 +11,9 @@ public class Comment{
 	public Comment(String text) {
 		this.text = text;
 	}
+	public Comment() {
+		
+	}
 	
 	public Date getCommentDate() { // GETTER FOR COMMNET DATE
 		return commentDate;
