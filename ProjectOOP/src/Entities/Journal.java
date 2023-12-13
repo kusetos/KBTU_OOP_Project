@@ -10,43 +10,31 @@ import People.Student;
 */
 public class Journal {
     
-    /**
-    * @generated
-    */
+
     private Vector<Course> courses;
     
-    /**
-    * @generated
-    */
     private Vector<Lesson> lessons;
-    
-    
-    /**
-    * @generated
-    */
+
     private Course course;
-    
-    /**
-    * @generated
-    */
-    private Lesson lesson;
-    
-    /**
-    * @generated
-    */
-    private Data data;
-    
-    /**
-    * @generated
-    */
-    private Student student;
+
+    private Lesson lesson;    
     
     
 
-    /**
-    * @generated
-    */
-    private Vector<Course> getCourses() {
+    public Journal(Vector<Course> courses, Vector<Lesson> lessons, Course course, Lesson lesson) {
+		super();
+		this.courses = courses;
+		this.lessons = lessons;
+		this.course = course;
+		this.lesson = lesson;
+
+	}
+    
+    public Journal() {
+    	
+    }
+    
+	private Vector<Course> getCourses() {
         return this.courses;
     }
     

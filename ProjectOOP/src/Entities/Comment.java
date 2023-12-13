@@ -10,9 +10,10 @@ public class Comment{
 	
 	public Comment(String text) {
 		this.text = text;
+		commentDate = new Date();
 	}
 	public Comment() {
-		
+		commentDate = new Date();
 	}
 	
 	public Date getCommentDate() { // GETTER FOR COMMNET DATE
@@ -21,6 +22,7 @@ public class Comment{
 	public String getText() { // Getter FOR TEXT
 		return text;
 	}
+	
 	public boolean changeText(String text) {
     	if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
     		return false;

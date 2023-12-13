@@ -1,158 +1,92 @@
 package Entities;
 
+import Enumerators.Language;
+import Enumerators.LessonName;
+import Enumerators.LessonType;
 
 /**
 * @generated
 */
 public class Lesson {
-    
-    /**
-    * @generated
-    */
-    private LessonName name;
-    
-    /**
-    * @generated
-    */
+
+    private LessonName lessonName;
+
     private Course course;
-    
-    /**
-    * @generated
-    */
+
     private Language language;
-    
-    /**
-    * @generated
-    */
+
     private LessonType type;
-    
-    /**
-    * @generated
-    */
+
     private int officeNumber;
+
+    private String code;
     
-    /**
-    * @generated
-    */
-    private String id;
+    public Lesson(LessonName name, Course course, Language language, LessonType type, int officeNumber, String code) {
+		super();
+		this.lessonName = name;
+		this.course = course;
+		this.language = language;
+		this.type = type;
+		this.officeNumber = officeNumber;
+		this.code = code;
+	}
+
+    public Lesson() {
+    	
+    }
+    // all setters made for admin or managers!!!!!!!!!!!!!!
     
+	public LessonName getLessoname() { // GETTOR FOR LESSON NAME
+        return this.lessonName;    
+    }
     
-    /**
-    * @generated
-    */
-    private Journal journal;
-    
+    public void setName(LessonName name) {//SETTER FOR LESSON NAME
+        this.lessonName = name;
+    }
     
 
-    /**
-    * @generated
-    */
-    private LessonName getName() {
-        return this.name;
-    }
-    
-    /**
-    * @generated
-    */
-    private LessonName setName(LessonName name) {
-        this.name = name;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Course getCourse() {
+    public Course getCourse() { //GETTER FOR COURSE
         return this.course;
     }
-    
-    /**
-    * @generated
-    */
-    private Course setCourse(Course course) {
+
+    public void setCourse(Course course) { // SETTER FOR COURSE
         this.course = course;
     }
     
-    
-    /**
-    * @generated
-    */
-    private Language getLanguage() {
+    public Language getLanguage() {	// GETTER FOR LANGUAGE EN/KZ/RUS
         return this.language;
     }
     
-    /**
-    * @generated
-    */
-    private Language setLanguage(Language language) {
+
+    public void setLanguage(Language language) { //SETTER FOR LANGUAGE
         this.language = language;
     }
     
-    
-    /**
-    * @generated
-    */
-    private LessonType getType() {
+    public LessonType getType() { // GETTER FOR LESSON TYPE practice/lecture/office hours
         return this.type;
     }
     
-    /**
-    * @generated
-    */
-    private LessonType setType(LessonType type) {
+    public void setLessonType(LessonType type) { // SETTERS FOR LESSON TYPE
         this.type = type;
     }
     
-    
-    /**
-    * @generated
-    */
-    private int getOfficeNumber() {
+    public int getOfficeNumber() { // GETTER FOR OFFICE NUMBER
         return this.officeNumber;
     }
-    
-    /**
-    * @generated
-    */
-    private int setOfficeNumber(Integer officeNumber) {
+
+    private void setOfficeNumber(int officeNumber) { // SETTER FOR OFFICE NUMBER
         this.officeNumber = officeNumber;
     }
     
-    
-    /**
-    * @generated
-    */
-    private String getId() {
-        return this.id;
+   
+    private String getCode() { // GETTER FOR CODE
+        return this.code;
     }
     
-    /**
-    * @generated
-    */
-    private String setId(String id) {
-        this.id = id;
+    private void setCode(String code) { // 	SETTER FOR CODE
+        this.code = code;
     }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Journal getJournal() {
-        return this.journal;
-    }
-    
-    /**
-    * @generated
-    */
-    public Journal setJournal(Journal journal) {
-        this.journal = journal;
-    }
-    
-    
     
 
-    //                          Operations                                  
-    
     
 }
