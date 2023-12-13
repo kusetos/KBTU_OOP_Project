@@ -1,174 +1,100 @@
 package Entities;
 
+import java.util.Vector;
 import DataBase.Data;
 import People.Student;
 import People.Teacher;
 
-/**
-* @generated
-*/
 public class Course {
     
-    /**
-    * @generated
-    */
     private Teacher teacher;
-    
-    /**
-    * @generated
-    */
     private int credits;
-    
-    /**
-    * @generated
-    */
     private String description;
-    
-    /**
-    * @generated
-    */
     private String courseName;
-    
-    /**
-    * @generated
-    */
     private String courseCode;
-    
-    /**
-    * @generated
-    */
-    private Student currentStudents;
-    
-    
-    /**
-    * @generated
-    */
+    Vector<Student> currentStudents = new Vector<Student>();  //vector for storing list of students at the course
     private Data data;
-    
-    /**
-    * @generated
-    */
     private Journal journal;
-    
-    
 
-    /**
-    * @generated
-    */
-    private Teacher getTeacher() {
+    public Teacher getTeacher() {
         return this.teacher;
     }
     
-    /**
-    * @generated
-    */
-    private Teacher setTeacher(Teacher teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
     
-    
-    /**
-    * @generated
-    */
-    private int getCredits() {
+
+    public int getCredits() {
         return this.credits;
     }
     
-    /**
-    * @generated
-    */
-    private int setCredits(Integer credits) {
+    public void setCredits(Integer credits) {
         this.credits = credits;
     }
     
-    
-    /**
-    * @generated
-    */
-    private String getDescription() {
+
+    public String getDescription() {
         return this.description;
     }
     
-    /**
-    * @generated
-    */
-    private String setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
     
-    
-    /**
-    * @generated
-    */
-    private String getCourseName() {
+
+    public String getCourseName() {
         return this.courseName;
     }
     
-    /**
-    * @generated
-    */
-    private String setCourseName(String courseName) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
     
-    
-    /**
-    * @generated
-    */
-    private string getCourseCode() {
+
+    public String getCourseCode() {
         return this.courseCode;
     }
     
-    /**
-    * @generated
-    */
-    private string setCourseCode(string courseCode) {
+    public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
     
-    
-    /**
-    * @generated
-    */
-    private Student getCurrentStudents() {
-        return this.currentStudents;
+
+    public Vector<Student> getCurrentStudents() {
+        return new Vector<Student>(currentStudents);
     }
-    
-    /**
-    * @generated
-    */
-    private Student setCurrentStudents(Student currentStudents) {
-        this.currentStudents = currentStudents;
+
+    public String addStudent(Student student) {
+        if (currentStudents.isEmpty()) {
+            currentStudents.add(student);
+            return "Student successfully added";
+        } else {
+            for (Student existingStudent : currentStudents) {
+                if (existingStudent.equals(student)) { // Student already exists, avoid adding duplicate
+                    return "Student cannot be added";
+                }
+            }
+            // Student not found, add it
+            currentStudents.add(student);
+            return "Student successfully added";
+        }
     }
+
     
-    
-    
-    /**
-    * @generated
-    */
     public Data getData() {
         return this.data;
     }
     
-    /**
-    * @generated
-    */
-    public Data setData(Data data) {
+    public void setData(Data data) {
         this.data = data;
     }
     
-    
-    /**
-    * @generated
-    */
     public Journal getJournal() {
         return this.journal;
     }
-    
-    /**
-    * @generated
-    */
-    public Journal setJournal(Journal journal) {
+
+    public void setJournal(Journal journal) {
         this.journal = journal;
     }
     
