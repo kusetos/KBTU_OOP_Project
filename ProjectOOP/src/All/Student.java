@@ -1,6 +1,9 @@
 package All;
 import java.util.Objects;
 import java.util.Vector;
+
+import Entities.Course;
+import Enumerators.Faculty;
 public class Student extends User{
 	String id;
 	int yearOfStudy;
@@ -66,14 +69,11 @@ public class Student extends User{
 	public boolean equals(Object o) {
 		if(!super.equals(o))return false;
 		Student s = (Student)o;
-		return Objects.equals(this.id, s.id) && Objects.equals(this.faculty, s.faculty) && Objects.equals(this.speciality, s.speciality) && this.yearOfStudy == yearOfStudy;
+		return Objects.equals(this.id, s.id) && Objects.equals(this.faculty, s.faculty) && Objects.equals(this.speciality, s.speciality) && this.yearOfStudy == s.yearOfStudy;
 	}
 	
 	public int hashCode() {
 		return Objects.hash(super.hashCode(), id, speciality, faculty);
 	}
 	
-	public String toString() {
-		
-	}
 }
