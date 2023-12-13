@@ -15,7 +15,7 @@ public class News {
 
     private String text;
     
-    private Vector<Comment> comments;	    
+    private Vector<Comment> comments;    
 
     public News(Date newsDate, String title, String text, Manager manager) {
 		super();
@@ -31,21 +31,45 @@ public class News {
         return this.newsDate;
     }
     
-    public String getTitile() { //	GETTER FOR TITLE
+    public String getTitle() { //	GETTER FOR TITLE
         return this.title;
     }
 
-    public void setTitile(String titile) { //	SETTER FOR TITLE
-        this.title = titile;
+    public boolean setTitie(String title) { //	SETTER FOR TITLE
+    	
+    	if(title.equals(null) || title.equals("")) { // CHECKS IF IT EMPTY
+    		return false;
+    	}else 
+    		this.title = title;
+    	
+    	return true;   
     }
     
     public String getText() {//	   GETTER FOR TEXT
         return this.text;
     }
 
-    public void setText(String text) {//	SETTER FOR TEXT
-        this.text = text;
+    public boolean setText(String text) {//	SETTER FOR TEXT
+    	
+    	if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
+    		return false;
+    	}else 
+    		this.text= text;
+    	
+    	return true;
     }
+    public boolean addComment(Comment comment) {
+    	if(comment.getText() == null || comment.getText() == "") { // CHECK IF COMMENT IS EMPTY
+    		return false;
+    	}else {
+    		if(comments == null) {
+    			comments = new Vector<Comment>(); //	CREATE NEW COMMENT VECTOR IF IT NOT EXIST
+    		}
+    		comments.add(comment);	//	ADD COMMENT	
+    		return true;
+    	}
+    }
+    
     
     
 }

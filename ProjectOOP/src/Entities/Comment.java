@@ -18,4 +18,12 @@ public class Comment{
 	public String getText() { // Getter FOR TEXT
 		return text;
 	}
+	public boolean changeText(String text) {
+    	if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
+    		return false;
+    	}else
+    		this.text= text;
+    	
+    	return true;
+	}
 }
