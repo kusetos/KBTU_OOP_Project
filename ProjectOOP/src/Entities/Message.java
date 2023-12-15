@@ -62,6 +62,11 @@ public class Message{
 		
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Message [recipient=" + recipient + "\n sender=" + sender + "\n text=" + text + ", messageDate="
+				+ messageDate.toString() + "]";
+	}
 
 	
 	
