@@ -10,16 +10,18 @@ import People.Manager;
 
 public class Message{
     
-    private Employee recipientEmployee;
+    private Employee recipient;
+    
+    private Employee sender;
     
     private String text;
 
     private Date messageDate;
    
     
-    public Message(Employee recipientEmployee, String text) { //Constructors
+    public Message(Employee recipientEmployee, String text, Employee recipient) { //Constructors
     	
-		this.recipientEmployee = recipientEmployee;
+		this.recipient = recipient;
 		this.text = text;
 		this.messageDate = new Date();
 	}
@@ -27,11 +29,31 @@ public class Message{
     	messageDate = new Date();
     }
     
-	public String getText() { // Getter FOR TEXT
+    // Getter FOR TEXT
+	public String getText() { 
 		return text;
 	}
 	
-	public boolean changeText(String text) { // Setter for TEXT
+	//Getter and SETTER FOR RECIPIENT RECIPIENT
+	public Employee getRecipient() { 
+		return recipient;
+	}
+	public void setRecipient(Employee newRecipient) { 
+		this.recipient = newRecipient;
+	}
+	
+	// GETTER FOR SENDER
+	public Employee getSender() { 
+		return sender;
+	}
+	
+	 //GETTER FOR MassageDate
+	public Date getDate() {
+		return messageDate;
+	}
+	
+	 // Setter for TEXT
+	public boolean changeText(String text) {
 		
 		if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
 			return false;
@@ -40,15 +62,7 @@ public class Message{
 		
 		return true;
 	}
-	
-	public Employee getRecipientEmploayee() { // GETTER FOR recipient
-		return recipientEmployee;
-	}
-	
-	public void setRecipient(Employee newRecipient) { //SETTER FOR RECIPIENT
-		this.recipientEmployee = newRecipient;
-	}
-	
+
 	
 	
     
