@@ -1,161 +1,63 @@
 package People;
 
-import Entities.Journal;
-import ResearcherStuff.BasicUserDecorator;
-import ResearcherStuff.ResearcherDecorator;
-
-/**
-* @generated
-*/
-public class User extends BasicUserDecorator implements Comparable, Serializable, ResearcherDecorator {
-    
-    /**
-    * @generated
-    */
-    private String name;
-    
-    /**
-    * @generated
-    */
-    private Date dateOfBirth;
-    
-    /**
-    * @generated
-    */
-    private Journal journalSubscriptions;
-    
-    /**
-    * @generated
-    */
-    private String login;
-    
-    /**
-    * @generated
-    */
-    private String password;
-    
-    /**
-    * @generated
-    */
-    private String surname;
-    
-    
-    /**
-    * @generated
-    */
-    private Comparable comparable;
-    
-    
-
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setName(String name) {
-        this.name = name;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Date getDateOfBirth() {
-        return this.dateOfBirth;
-    }
-    
-    /**
-    * @generated
-    */
-    private Date setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Journal getJournalSubscriptions() {
-        return this.journalSubscriptions;
-    }
-    
-    /**
-    * @generated
-    */
-    private Journal setJournalSubscriptions(Journal journalSubscriptions) {
-        this.journalSubscriptions = journalSubscriptions;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private String getLogin() {
-        return this.login;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setLogin(String login) {
-        this.login = login;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private String getPassword() {
-        return this.password;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setPassword(String password) {
-        this.password = password;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private String getSurname() {
-        return this.surname;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setSurname(String surname) {
-        this.surname = surname;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Comparable getComparable() {
-        return this.comparable;
-    }
-    
-    /**
-    * @generated
-    */
-    public Comparable setComparable(Comparable comparable) {
-        this.comparable = comparable;
-    }
-    
-    
-    
-
-    //                          Operations                                  
-    
-    
+import java.util.Objects;
+public class User {
+	String username;
+	String password;
+	String birthDate;
+	String phoneNumber;
+	String email;
+	String name;
+	String surname;
+	
+	public User() {
+		
+	}
+	
+	public User(String username, String password, String birthDate, String phoneNumber, String email, String name, String surname) {
+		this.birthDate = birthDate;
+		this.password = password;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.surname = surname;
+		this.username = username;
+	}
+	public User(String username, String password) {
+		this.password = password;
+		this.username = username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void changePassword(String oldPassword, String newPassword) {
+		if(this.password.equals(oldPassword)) {
+			this.password = newPassword;
+			System.out.println("Password changed successfully");
+		}
+		else {
+			System.out.println("Wrong password");
+		}
+	}
+	
+	public boolean equals(Object o){
+		if(this == o)return true;
+		if(o == null)return false;
+		if(this.getClass() != o.getClass())return false;
+		User u = (User)o;
+		if(this.hashCode() != u.hashCode())return false;
+		return Objects.equals(this.birthDate, u.birthDate) && Objects.equals(this.email, u.email)
+				&& Objects.equals(this.name, u.name) && Objects.equals(this.password, u.password)
+				&& Objects.equals(this.surname, u.surname) && Objects.equals(this.username, u.username);
+	}
+	
+	public int hashCode() {
+		return Objects.hash(username, birthDate, email, name, surname,password);
+	}
+	
 }

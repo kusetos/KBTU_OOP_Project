@@ -12,21 +12,21 @@ public class Course {
     private String description;
     private String courseName;
     private String courseCode;
-    Vector<Student> currentStudents = new Vector<Student>();  //vector for storing list of students at the course
-    private Data data;
-    private Journal journal;
+    Vector<Student> currentStudents;  //vector for storing list of students at the course
+
 
     public Course(){
         
     }
 
-    public Course(Teacher teacher, int credits, String description, String courseName, String courseCode, Data data){
+    public Course(Teacher teacher, int credits, String description, String courseName, String courseCode){
+    	
         this.teacher = teacher;
         this.credits = credits;
         this.description = description;
         this.courseName = courseName;
         this.courseCode = courseCode;
-        this.data = data;
+
     }
 
     //getter and setter for teacher
@@ -76,38 +76,34 @@ public class Course {
 
     //add new student to the course
     public boolean addStudent(Student student) {
-        if (currentStudents.isEmpty()) { //add student if there is no student
+    	
+        if (currentStudents.isEmpty() || currentStudents.equals(null)) { //add student if there is no student
+        	currentStudents = new Vector<Student>();
             currentStudents.add(student);
             return true;
         } else {
             if (currentStudents.contains(student)){
                 return false; //student already exists, avoid adding duplicate
             }
-
             //student not found, add it
             currentStudents.add(student);
             return true;
         }
     }
-
-    //getter and setter for data
-    public Data getData() {
-        return this.data;
-    }
-    
-    public void setData(Data data) {
-        this.data = data;
-    }
-    
-    //getter and setter for Journal. NEED TO UPDATE
-    public Journal getJournal() {
-        return this.journal;
+    public boolean removeStudent(Student student) {
+    	
+    	if(currentStudents.isEmpty() || currentStudents.equals(null)) {
+    		return false;
+    	}else {
+    		if(currentStudents.contains(student)){
+    			currentStudents.remove(student);
+    			return true;
+            }else return false;
+    	}
     }
 
-    public void setJournal(Journal journal) {
-        this.journal = journal;
-    }
-    
+
+
     //   Operations                                  
     
 }
