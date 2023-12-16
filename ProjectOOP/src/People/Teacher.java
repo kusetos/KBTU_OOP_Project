@@ -1,83 +1,62 @@
 package People;
 
+import java.util.Date;
+import java.util.Vector;
 import Entities.Course;
 import Entities.Lesson;
 
-/**
-* @generated
-*/
 public class Teacher extends Employee {
     
-    /**
-    * @generated
-    */
     private Vector<Course> courses;
-    
-    
-    
+    private Vector<Student> courseStudents;
+    private String compliant;
 
-    /**
-    * @generated
-    */
-    private Vector<Course> getCourses() {
+    public Teacher(double Salary, Date hireDate) {
+        super(Salary, hireDate);
+    }
+    
+    // we renamed viewCourse as getCourse and divided manageCourse as setCourse, addCourse and removeCourse
+    public Vector<Course> getCourses() {
         return this.courses;
     }
     
-    /**
-    * @generated
-    */
-    private Vector<Course> setCourses(Vector<Course> courses) {
+    public void setCourses(Vector<Course> courses) {
         this.courses = courses;
     }
-    
-    
-    
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public Lesson viewCourses() {
-        //TODO
-        return null;
+    public void addCourse(Course course){
+        courses.add(course);
     }
     
-    /**
-    * @generated
-    */
-    public void manageCourse() {
-        //TODO
+    public void removeCourse(Course course) {
+        if(courses.isEmpty() || courses.equals(null)) {}
+        else {
+    		courses.remove(course);
+    	}
     }
     
-    /**
-    * @generated
-    */
-    public void viewStudents() {
-        //TODO
+    //to view Students at the course
+    public String viewStudents() {
+        String strStudents = new String();
+        for(Student c: courseStudents){
+            strStudents += c.toString() + "\n";
+        }
+        return strStudents;
     }
     
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
+    //marking our student
+    public void putMarks(Student student, int point) {
+        for(Student c: courseStudents){
+            if (c == student) c.addMark(point);
+        }
     }
-    
-    /**
-    * @generated
-    */
-    public void sendMessages() {
-        //TODO
+
+    //getter as sending and setter for compliant
+    public String sendCompliant() {
+        return compliant;
     }
-    
-    /**
-    * @generated
-    */
-    public void sendCompliant() {
-        //TODO
+
+    public void setCompliant(String compliant){
+        this.compliant = compliant;
     }
-    
-    
 }
