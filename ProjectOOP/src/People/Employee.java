@@ -2,13 +2,15 @@ package People;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
+
 import Entities.Message;
 
 public class Employee extends User {
     
     private double Salary;
     private Date hireDate;
-    private ArrayList<Message> sentMessages = new ArrayList<>(); // Store sent messages
+    private Vector<Message> sentMessages = new Vector<>(); // Store sent messages
 
     // Constructor to initialize fields
     public Employee(double Salary, Date hireDate) {
@@ -35,7 +37,7 @@ public class Employee extends User {
     }
 
     public void sendMessage(Employee recipient, String text) {
-        Message newMessage = new Message(recipient, text); // Create message only when needed
-        sentMessages.add(newMessage); // Store sent message
+        Message newMessage = new Message(recipient, text, this); // Create message only when needed
+        sentMessages.addElement(newMessage); // Store sent message
     }
 }
