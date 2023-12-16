@@ -1,5 +1,7 @@
 package DataBase;
 
+import java.util.Vector;
+
 import Entities.Course;
 import Entities.Journal;
 import Entities.Message;
@@ -7,40 +9,38 @@ import Entities.News;
 import Entities.Order;
 import People.Admin;
 import People.BachelorStudent;
+import People.Employee;
 import People.GraduateStudent;
 import People.Manager;
+import People.Student;
 import People.User;
 
-/**
-* @generated
-*/
+
 public class Data {
     
-    private  employees;
-    private  students;
-    private  Journals;
-    private  orders;
-    private News news;
-    private Message messages;
-    private Admin admins;
-    private Researcher researchers;
-    private Manager managers;
-    private BachelorStudent bachelorStudents;
-    private GraduateStudent graduateStudents;
-    private User users;
-    private Course course;
-    private Admin admin;
-    private Manager manager;
-    private Order order;
-    private Message message;
-    private News news2;
-    private Journal journal;
+    private static Vector<Employee>employees;
+    private static Vector<Student> students;
+
+    private static Vector<News> news;
+    private static Vector<Message> messages;
+    private static Vector<Admin> admins;
+    //private static Vector<Researcher> researchers;
+    private static Vector<Manager> managers;
+    private static Vector<BachelorStudent> bachelorStudents;
+    private static Vector<GraduateStudent> graduateStudents;
+    private static Vector<User> users;
+    private static Vector<Course> course;
+    private static Vector<Admin> admin;
+    private static Vector<Manager> manager;
+    private static Vector<Order> orders;
+    private static Vector<Message> message;
+    private static Vector<Journal> journal;
     
-    private  getEmployees() {
+    private  Vector<Employee> getEmployees() {
         return this.employees;
     }
     
-    private  setEmployees(invalid employees) {
+    private  void setEmployees(invalid employees) {
         this.employees = employees;
     }
     
@@ -136,17 +136,6 @@ public class Data {
         return this.course;
     }
     
-    public Course setCourse(Course course) {
-        this.course = course;
-    }
-    
-    public News getNews2() {
-        return this.news2;
-    }
-    
-    public News setNews2(News news2) {
-        this.news2 = news2;
-    }
     
     public Journal getJournal() {
         return this.journal;
@@ -168,23 +157,18 @@ public class Data {
         return this.order;
     }
     
-    public Order setOrder(Order order) {
-        this.order = order;
+    public static void addOrder(Order order) {
+    	orders.add(order);
     }
     
-    public Admin getAdmin() {
+    public Vector<Admin> getAdmin() {
         return this.admin;
     }
     
-    public Admin setAdmin(Admin admin) {
-        this.admin = admin;
-    }
+
     
-    public Message getMessage() {
+    public Vector<Message> getMessage() {
         return this.message;
     }
-    
-    public Message setMessage(Message message) {
-        this.message = message;
-    }
+
 }
