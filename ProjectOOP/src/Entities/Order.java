@@ -31,7 +31,6 @@ public class Order {
     	this.sentTime = new Date();
     }
     
-    
     public String getDescription() { // GETTER ТЕКСТ ЗАПРОСА DESCRIPTION
         return this.description;
     }
@@ -54,6 +53,9 @@ public class Order {
     
     public User getSender() { // GETTER for SENDER
     	return sender;
+    }
+    public void setSender(User sender) {
+    	this.sender = sender;
     }
 
 }

@@ -102,6 +102,12 @@ public class Course {
     	}
     }
 
+	@Override
+	public String toString() {
+		return "Course [teacher=" + teacher + ", credits=" + credits + ", description=" + description + ", courseName="
+				+ courseName + ", courseCode=" + courseCode + ", currentStudents=" + currentStudents + "]";
+	}
+
 
 
     //   Operations                                  
