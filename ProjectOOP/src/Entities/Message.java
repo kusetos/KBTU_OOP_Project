@@ -19,7 +19,7 @@ public class Message{
     private Date messageDate;
    
     
-    public Message(Employee recipientEmployee, String text, Employee recipient) { //Constructors
+    public Message(Employee recipient, String text) { //Constructors
     	
 		this.recipient = recipient;
 		this.text = text;
