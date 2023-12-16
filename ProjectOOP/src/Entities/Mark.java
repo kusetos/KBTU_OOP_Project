@@ -1,171 +1,56 @@
 package Entities;
 
-import people.Student;
+import People.Student;
 
-/**
-* @generated
-*/
 public class Mark {
     
-    /**
-    * @generated
-    */
     private Student student;
-    
-    /**
-    * @generated
-    */
     private Course course;
-    
-    /**
-    * @generated
-    */
     private Lesson lesson;
-    
-    /**
-    * @generated
-    */
     private int points;
-    
-    /**
-    * @generated
-    */
-    private  attribute;
-    
-    
-    /**
-    * @generated
-    */
-    private Student student2;
-    
-    
 
-    /**
-    * @generated
-    */
-    private Student getStudent() {
-        return this.student;
-    }
-    
-    /**
-    * @generated
-    */
-    private Student setStudent(Student student) {
+    public Mark(){}
+
+    public Mark(Student student, Course course, Lesson lesson, int points){
         this.student = student;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Course getCourse() {
-        return this.course;
-    }
-    
-    /**
-    * @generated
-    */
-    private Course setCourse(Course course) {
         this.course = course;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Lesson getLesson() {
-        return this.lesson;
-    }
-    
-    /**
-    * @generated
-    */
-    private Lesson setLesson(Lesson lesson) {
         this.lesson = lesson;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private int getPoints() {
-        return this.points;
-    }
-    
-    /**
-    * @generated
-    */
-    private int setPoints(Integer points) {
         this.points = points;
     }
     
-    
-    /**
-    * @generated
-    */
-    public  getAttribute() {
-        return this.attribute;
-    }
-    
-    /**
-    * @generated
-    */
-    public  setAttribute(invalid attribute) {
-        this.attribute = attribute;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Student getStudent2() {
-        return this.student2;
-    }
-    
-    /**
-    * @generated
-    */
-    public Student setStudent2(Student student2) {
-        this.student2 = student2;
-    }
-    
-    
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
+    //getter and setter for student
     public Student getStudent() {
-        //TODO
-        return null;
+        return this.student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
     
-    /**
-    * @generated
-    */
+    //getter and setter for course
     public Course getCourse() {
-        //TODO
-        return null;
+        return this.course;
     }
     
-    /**
-    * @generated
-    */
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+    
+    //getter and setter for lesson
     public Lesson getLesson() {
-        //TODO
-        return null;
+        return this.lesson;
     }
     
-    /**
-    * @generated
-    */
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+    
+    //getter and setter for points
     public int getPoints() {
-        //TODO
-        return 0;
+        return this.points;
     }
     
-    
+    public void setPoints(int points) {
+        this.points = points;
+    }
 }
