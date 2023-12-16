@@ -2,8 +2,12 @@ package Entities;
 
 import java.util.Date;
 
+import People.User;
+
 public class Comment{
 
+	private User sender;
+	
 	private String text;
 	
 	private Date commentDate;
@@ -14,6 +18,10 @@ public class Comment{
 	}
 	public Comment() {
 		commentDate = new Date();
+	}
+	
+	public User getSender() { // GETTER for SENDER
+		return sender;
 	}
 	
 	public Date getCommentDate() { // GETTER FOR COMMNET DATE
@@ -31,4 +39,9 @@ public class Comment{
     	
     	return true;
 	}
+	@Override
+	public String toString() {
+		return "Comment [sender=" + sender + ", text=" + text + ", commentDate=" + commentDate + "]";
+	}
+		
 }

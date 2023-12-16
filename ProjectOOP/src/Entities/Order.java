@@ -15,17 +15,20 @@ public class Order {
     private String description;
     
     private Date sentTime;
+    
+    private User sender;
 
     
-    public Order(String description, Date sentTime) {
+    public Order(String description) {
     	
     	this.status = ITOrderStatus.NEW;;
     	this.description = description;
-    	this.sentTime = sentTime;
+    	this.sentTime = new Date();
 
     }
     public Order() {
     	this.status = ITOrderStatus.NEW;
+    	this.sentTime = new Date();
     }
     
     
@@ -40,8 +43,17 @@ public class Order {
     public ITOrderStatus getStatus() { // GETTER FOR STATUS
     	return this.status;
     }
-    public Date getSentTime() {   // GETTER FOR TIME
+    
+    public void viewStatus() { // Watched status become OLD.
+    	this.status = ITOrderStatus.OLD;
+    }
+    
+    public Date getDate() {   // GETTER FOR sended TIME
         return this.sentTime;
+    }
+    
+    public User getSender() { // GETTER for SENDER
+    	return sender;
     }
 
 }

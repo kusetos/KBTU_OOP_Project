@@ -1,5 +1,6 @@
 package Entities;
 
+<<<<<<< HEAD
 import People.Student;
 
 public class Mark {
@@ -48,6 +49,23 @@ public class Mark {
     //getter and setter for points
     public int getPoints() {
         return this.points;
+=======
+public class Mark {
+    
+
+
+    private int points;
+
+
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getPoints() {
+        
+        return points;
+>>>>>>> d426930a044ae8010d8fe71e73077d2212dcdeb0
     }
     
     public void setPoints(int points) {
