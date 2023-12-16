@@ -2,6 +2,9 @@ package People;
 
 import java.util.Date;
 import java.util.Objects;
+
+import DataBase.Data;
+import Entities.Order;
 public class User {
 	String username;
 	String password;
@@ -91,8 +94,10 @@ public class User {
 		this.password = password;
 	}
 	
-	public void makeOrder() {
-		
+	public void makeOrder(String description) { // make order
+		Order order = new Order(description);
+		order.setSender(this);
+		Data.addOrder(order);
 	}
 	
 	
