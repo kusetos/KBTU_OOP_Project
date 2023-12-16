@@ -54,7 +54,7 @@ public class Order {
     public User getSender() { // GETTER for SENDER
     	return sender;
     }
-    public void setSender() {
+    public void setSender(User sender) {
     	this.sender = sender;
     }
 
