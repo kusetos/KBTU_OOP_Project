@@ -11,19 +11,16 @@ import People.Manager;
 public class Message{
     
     private Employee recipient;
-    
     private Employee sender;
-    
     private String text;
-
     private Date messageDate;
    
     
-    public Message(Employee recipientEmployee, String text, Employee recipient) { //Constructors
-    	
+    public Message(Employee recipient, String text, Employee sender) { //Constructors
 		this.recipient = recipient;
 		this.text = text;
 		this.messageDate = new Date();
+		this.sender = sender;
 	}
     public Message() {  
     	messageDate = new Date();

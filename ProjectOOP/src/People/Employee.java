@@ -1,58 +1,43 @@
 package People;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Vector;
 
-/**
-* @generated
-*/
+import Entities.Message;
+
 public class Employee extends User {
     
-    /**
-    * @generated
-    */
     private double Salary;
-    
-    /**
-    * @generated
-    */
     private Date hireDate;
-    
-    
-    
+    private Vector<Message> sentMessages = new Vector<>(); // Store sent messages
 
-    /**
-    * @generated
-    */
-    private double getSalary() {
+    // Constructor to initialize fields
+    public Employee(double Salary, Date hireDate) {
+        this.Salary = Salary;
+        this.hireDate = hireDate;
+    }
+
+    //getter and setter for salary
+    public double getSalary() {
         return this.Salary;
     }
     
-    /**
-    * @generated
-    */
-    private double setSalary(double Salary) {
+    public void setSalary(double Salary) {
         this.Salary = Salary;
     }
     
-    
-    /**
-    * @generated
-    */
-    private Date getHireDate() {
+    //getter and setter for salary
+    public Date getHireDate() {
         return this.hireDate;
     }
     
-    /**
-    * @generated
-    */
-    private Date setHireDate(Date hireDate) {
+    public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
-    
-    
-    
-    
 
-    //                          Operations                                  
-    
-    
+    public void sendMessage(Employee recipient, String text) {
+        Message newMessage = new Message(recipient, text, this); // Create message only when needed
+        sentMessages.addElement(newMessage); // Store sent message
+    }
 }
