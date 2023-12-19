@@ -27,7 +27,7 @@ public class TechSupportSpecialist extends Employee {
         Vector<Order> newOrders = Data.getOrders();
         if (newOrders.contains(order)) {
             newOrders.remove(order);
-            System.out.println("Заказ отклонен: " + order.getDescription());
+            System.out.println("The order was rejected: " + order.getDescription());
         } else {
             System.out.println("The order was rejected.");
         }
