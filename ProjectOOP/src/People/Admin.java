@@ -1,100 +1,59 @@
 package People;
 
+import java.util.Date;
 import DataBase.Data;
+import Enumerators.Faculty;
+import Enumerators.ManagerType;
+import Enumerators.Organization;
+import Enumerators.TeacherType;
 
-/**
-* @generated
-*/
-public class Admin {
-    
-    /**
-    * @generated
-    */
-    private  attribute;
-    
-    /**
-    * @generated
-    */
-    private  viewLogs;
-    
-    
-    /**
-    * @generated
-    */
-    private Data data;
-    
-    
-
-    /**
-    * @generated
-    */
-    public  getAttribute() {
-        return this.attribute;
+public class Admin extends Employee{
+	
+	public Admin() {
+		
+	}
+	
+	public Admin(String username, String password, Date birthDate, String phoneNumber, String email, String name, String surname, 
+			double Salary, Date hireDate) {
+		super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
+	}
+	
+	//add user
+	public void addTeacher(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
+			String surname, double Salary, Date hireDate, TeacherType teacherType) {
+        Teacher teacher = new Teacher(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate, teacherType);
+        Data.users.add(teacher);
+	}
+	
+	public void addStudent(String username, String password, Date birthDate, String phoneNumber, String email, String name,
+			String surname, String id, int yearOfStudy, double gpa, int creditLimit, Faculty faculty, String speciality, Organization org) {
+        Student student = new Student(username, password, birthDate, phoneNumber, email, name,
+    			surname, id, yearOfStudy, gpa, creditLimit, faculty, speciality, org);
+        Data.users.add(student);
     }
-    
-    /**
-    * @generated
-    */
-    public  setAttribute(invalid attribute) {
-        this.attribute = attribute;
+	
+	public void addManager(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
+			String surname, double Salary, Date hireDate, ManagerType managerType) {
+        Manager manager = new Manager(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate, managerType);
+        Data.users.add(manager);
+	}
+	
+	public void addTechSupportSpecialist(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
+			String surname, double Salary, Date hireDate) {
+        TechSupportSpecialist techSupportSpecialist = new TechSupportSpecialist(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
+        Data.users.add(techSupportSpecialist);
     }
-    
-    
-    /**
-    * @generated
-    */
-    public  getViewLogs() {
-        return this.viewLogs;
+	
+	//remove user
+	public void removeUser(String username, String name, String surname) {
+    	for(User u : Data.users) {
+    		if(u.getUsername().equals(username) && u.getName().equals(name) && u.getSurname().equals(surname)) {
+    			Data.users.remove(u);
+    		}
+    	}
     }
-    
-    /**
-    * @generated
-    */
-    public  setViewLogs(invalid viewLogs) {
-        this.viewLogs = viewLogs;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Data getData() {
-        return this.data;
-    }
-    
-    /**
-    * @generated
-    */
-    public Data setData(Data data) {
-        this.data = data;
-    }
-    
-    
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void addUser() {
+	
+    public void viewLogs() {
         //TODO
     }
-    
-    /**
-    * @generated
-    */
-    public void removeUser() {
-        //TODO
-    }
-    
-    /**
-    * @generated
-    */
-    public void updateUser() {
-        //TODO
-    }
-    
-    
 }
