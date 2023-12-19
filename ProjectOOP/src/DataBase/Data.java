@@ -28,13 +28,17 @@ public class Data {
     private static Vector<Manager> managers;
     private static Vector<BachelorStudent> bachelorStudents;
     private static Vector<GraduateStudent> graduateStudents;
-    private static Vector<User> users;
+    public static Vector<User> users;
     private static Vector<Course> course;
     private static Vector<Admin> admin;
     private static Vector<Manager> manager;
     private static Vector<Order> orders;
     private static Vector<Message> message;
     private static Vector<Journal> journal;
+
+    public static Vector<Order> getOrders() {
+        return orders;
+    }
     
     private  Vector<Employee> getEmployees() {
         return this.employees;
@@ -59,11 +63,11 @@ public class Data {
     private  setJournals(invalid Journals) {
         this.Journals = Journals;
     }
-    
+    /*
     private  getOrders() {
         return this.orders;
     }
-    
+    */
     private  setOrders(invalid orders) {
         this.orders = orders;
     }
@@ -152,11 +156,11 @@ public class Data {
     public Manager setManager(Manager manager) {
         this.manager = manager;
     }
-    
+    /*
     public Order getOrder() {
         return this.order;
     }
-    
+    */
     public static void addOrder(Order order) {
     	orders.add(order);
     }
