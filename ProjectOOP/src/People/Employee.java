@@ -3,7 +3,6 @@ package People;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
-
 import Entities.Message;
 
 public class Employee extends User {
@@ -12,9 +11,14 @@ public class Employee extends User {
     private Date hireDate;
     private Vector<Message> sentMessages = new Vector<>(); // Store sent messages
 
-    // Constructor to initialize fields
-    public Employee(double Salary, Date hireDate) {
-        this.Salary = Salary;
+    public Employee() {
+    
+    }
+    
+    public Employee(String username, String password, Date birthDate, String phoneNumber, String email, String name, String surname, 
+    			double Salary, Date hireDate) {
+    	super(username, password, birthDate, phoneNumber, email, name, surname);
+    	this.Salary = Salary;
         this.hireDate = hireDate;
     }
 
