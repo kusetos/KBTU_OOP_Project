@@ -11,8 +11,14 @@ public class Teacher extends Employee {
     private Vector<Student> courseStudents;
     private String compliant;
 
-    public Teacher(double Salary, Date hireDate) {
-        super(Salary, hireDate);
+    public Teacher() {
+    	
+    }
+
+    public Teacher(String username, String password, Date birthDate, String phoneNumber, String email, String name, String surname, 
+    		double Salary, Date hireDate, TeacherType teacherType) {
+        super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
+        this.teacherType = teacherType;
     }
     
     // we renamed viewCourse as getCourse and divided manageCourse as setCourse, addCourse and removeCourse
