@@ -28,7 +28,7 @@ public class Data {
     private static Vector<Manager> managers;
     private static Vector<BachelorStudent> bachelorStudents;
     private static Vector<GraduateStudent> graduateStudents;
-    public static Vector<User> users;
+    private static Vector<User> users;
     private static Vector<Course> course;
     private static Vector<Admin> admin;
     private static Vector<Manager> manager;
@@ -40,15 +40,12 @@ public class Data {
         return orders;
     }
     
-    private  Vector<Employee> getEmployees() {
+    public static  Vector<Employee> getEmployees() {
         return this.employees;
     }
     
-    private  void setEmployees(invalid employees) {
-        this.employees = employees;
-    }
     
-    private  getStudents() {
+    public static  getStudents() {
         return this.students;
     }
     
@@ -56,11 +53,11 @@ public class Data {
         this.students = students;
     }
     
-    private  getJournals() {
+    public static  getJournals() {
         return this.Journals;
     }
     
-    private  setJournals(invalid Journals) {
+    public static  setJournals(invalid Journals) {
         this.Journals = Journals;
     }
     /*
@@ -68,71 +65,71 @@ public class Data {
         return this.orders;
     }
     */
-    private  setOrders(invalid orders) {
+    public static  setOrders(invalid orders) {
         this.orders = orders;
     }
     
-    private News getNews() {
+    public static News getNews() {
         return this.news;
     }
     
-    private News setNews(News news) {
+    public static News setNews(News news) {
         this.news = news;
     }
     
-    private Message getMessages() {
+    public static Message getMessages() {
         return this.messages;
     }
     
-    private Message setMessages(Message messages) {
+    public static Message setMessages(Message messages) {
         this.messages = messages;
     }
     
-    private Admin getAdmins() {
+    public static Admin getAdmins() {
         return this.admins;
     }
     
-    private Admin setAdmins(Admin admins) {
+    public static Admin setAdmins(Admin admins) {
         this.admins = admins;
     }
     
-    private Researcher getResearchers() {
+    public static Researcher getResearchers() {
         return this.researchers;
     }
     
-    private Researcher setResearchers(Researcher researchers) {
+    public static Researcher setResearchers(Researcher researchers) {
         this.researchers = researchers;
     }
     
-    private Manager getManagers() {
+    public static Manager getManagers() {
         return this.managers;
     }
     
-    private Manager setManagers(Manager managers) {
+    public static Manager setManagers(Manager managers) {
         this.managers = managers;
     }
     
-    private BachelorStudent getBachelorStudents() {
+    public static BachelorStudent getBachelorStudents() {
         return this.bachelorStudents;
     }
     
-    private BachelorStudent setBachelorStudents(BachelorStudent bachelorStudents) {
+    public static BachelorStudent setBachelorStudents(BachelorStudent bachelorStudents) {
         this.bachelorStudents = bachelorStudents;
     }
     
-    private GraduateStudent getGraduateStudents() {
+    public static GraduateStudent getGraduateStudents() {
         return this.graduateStudents;
     }
     
-    private GraduateStudent setGraduateStudents(GraduateStudent graduateStudents) {
+    public static GraduateStudent setGraduateStudents(GraduateStudent graduateStudents) {
         this.graduateStudents = graduateStudents;
     }
     
-    private User getUsers() {
+    public static User getUsers() {
         return this.users;
     }
     
-    private User setUsers(User users) {
+    public static User setUsers(User users) {
         this.users = users;
     }
     

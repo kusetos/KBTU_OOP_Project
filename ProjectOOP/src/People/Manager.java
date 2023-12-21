@@ -1,6 +1,7 @@
 package People;
 
 import DataBase.Data;
+import Entities.Course;
 import Entities.Message;
 import Entities.News;
 
@@ -280,7 +281,7 @@ public class Manager extends Employee {
     /**
     * @generated
     */
-    public void approveStudentRegistration() {
+    public void approveStudentRegistration(Course course) {
         //TODO
     }
     
@@ -325,6 +326,8 @@ public class Manager extends Employee {
     public void viewRequestsByEmployees() {
         //TODO
     }
+
+
     
     
 }
