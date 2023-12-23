@@ -11,7 +11,7 @@ public class TechSupportSpecialist extends Employee {
 			String surname, double Salary, Date hiredate) {
 		super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hiredate);
 	}
-    
+    // НЕ НАДО ТАК ДЕЛАТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void acceptOrder(Order order) {
         Vector<Order> newOrders = Data.getOrders();
         if (newOrders.contains(order)) {
