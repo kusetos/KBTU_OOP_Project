@@ -1,5 +1,10 @@
 package DataBase;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Vector;
 
 import Entities.Course;
@@ -16,23 +21,38 @@ import People.Student;
 import People.User;
 
 
-public class Data {
+public class Data implements Serializable{
     
-    private static Vector<Employee>employees;
-    private static Vector<Student> students;
+    private static Vector<Employee>employees = new Vector<>();
+    private static Vector<Student> students = new Vector<>();
 
-    private static Vector<News> news;
-    private static Vector<Message> messages;
+    private static Vector<News> news = new Vector<>();
+    private static Vector<Message> messages = new Vector<>();
    // private static Vector<Researcher> researchers;
-    private static Vector<Manager> managers;
-    private static Vector<BachelorStudent> bachelorStudents;
-    private static Vector<GraduateStudent> graduateStudents;
-    private static Vector<User> users;
-    private static Vector<Course> courses;
-    private static Vector<Admin> admins;
-    private static Vector<Order> orders;
-    private static Vector<Journal> journals;
+    private static Vector<Manager> managers = new Vector<>();
+    private static Vector<BachelorStudent> bachelorStudents = new Vector<>();
+    private static Vector<GraduateStudent> graduateStudents = new Vector<>();
+    private static Vector<User> users = new Vector<>();
+    private static Vector<Course> courses = new Vector<>();
+    private static Vector<Admin> admins = new Vector<>();
+    private static Vector<Order> orders = new Vector<>();
+    private static Vector<Journal> journals = new Vector<>();
 
+    public static void saveAndSerialize() {
+    	serialize(orders);
+    }
+    	
+    private static void serialize(Object o) {
+    	try {
+    		FileOutputStream fos = new FileOutputStream("DataBase/testData.bin");
+    		ObjectOutputStream oos = new ObjectOutputStream(fos);
+    		oos.writeObject(o);
+    		oos.close();
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}
+    }
+    
     public static Vector<Course> getCourses(){
     	return courses;
     }
