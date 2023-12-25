@@ -50,7 +50,7 @@ public class Message{
 	}
 	
 	 // Setter for TEXT
-	public boolean changeText(String text) {
+	public boolean setText(String text) {
 		
 		if(text.equals(null) || text.equals("")) { // CHECKS IF IT EMPTY
 			return false;
