@@ -152,8 +152,8 @@ public class User {
         }
         return s;
     }
+    //----------------------------------------------------------------------------------
     
-	
 	public boolean equals(Object o){
 		if(this == o)return true;
 		if(o == null)return false;
