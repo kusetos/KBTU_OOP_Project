@@ -1,10 +1,11 @@
 package People;
 
+import java.io.Serializable;
 import java.util.*;
 import DataBase.Data;
 import Enumerators.*;
 
-public class Admin extends Employee{
+public class Admin extends Employee implements Serializable{
 	
 	public Admin() {
 		
@@ -88,6 +89,6 @@ public class Admin extends Employee{
 	}
 	
     public void viewLogs() {
-        
+        System.out.println("nothing");
     }
 }
