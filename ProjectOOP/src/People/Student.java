@@ -21,6 +21,7 @@ public class Student extends User{
 	private String speciality;
 	private Organization org;
 	private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
+	private String Transcript = "";
 	
 	public Student() {
 		super();
@@ -36,8 +37,6 @@ public class Student extends User{
 		this.faculty = faculty;
 		this.speciality = speciality;
 	}
-	
-
 	
 	public String getId() {
 		return id;
@@ -113,10 +112,13 @@ public class Student extends User{
 			mark.setFinalScore(points);
 		}
 	}
+	
 	public String getMarkOfCourse(Course course) {
 		Mark mark = marks.get(course);
 		if(mark == null)return null;
-		return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + "\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints();
+		return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + 
+				"\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints() + "\n GPA: " + 
+				this.convertMarkToGradePoints(mark.totalPoints())  + "\n Grade: " + this.gpaConverter(this.convertMarkToGradePoints(mark.totalPoints()))  + "\n";
 	}
 	
 	public HashMap<Course, Mark> getMarks() {
@@ -143,26 +145,29 @@ public class Student extends User{
 		}
 		return strCourses;
 	}
+	
 	public void registerForCourses(Course course) {
 	}
 	public Teacher viewTeacherOfCourse(Course course) {
 		return course.getTeacher();
 	}
-	public void getTranscript() {
+	public String getTranscript() {
 		for(Course course : courses) {
-			getMarkOfCourse(course);
+			Transcript += getMarkOfCourse(course);
 		}
+		return Transcript;
 	}
 	
 	public void viewTranscript() {
-		for(Course course : courses) {
-			System.out.println(course);
-		}
-		System.out.println("GPA: " + gpa);
+		System.out.println(getTranscript());
+		System.out.println("Total GPA: " + gpa + " | " + this.gpaConverter(gpa) + "\n");
+		
 	}
-	public void rateTeachers(Teacher teacher, int rate) {
-		teacher.addRate(rate);
-	}
+	
+//	public void rateTeachers(Teacher teacher, int rate) {
+//		teacher.addRate(rate);
+//	}
+	
 	public Organization studentOrganization() {
 		return this.studentOrganization();
 	}
@@ -175,7 +180,7 @@ public class Student extends User{
 		this.org = org;
 		org.addMember(this);
 	}
-	
+		
 	public void leaveOrganization() {
 		this.org = null;
 		org.removeMember(this);
@@ -198,8 +203,8 @@ public class Student extends User{
         for (Entry<Course, Mark> entry : marks.entrySet()) {
             Course course = entry.getKey();
             Mark mark = entry.getValue();
-
-            totalScore += mark.totalPoints() * course.getCredits();
+            Double totalGrade = convertMarkToGradePoints(mark.totalPoints());
+            totalScore += totalGrade* course.getCredits();
             totalCredits += course.getCredits();
         }
 
@@ -209,7 +214,58 @@ public class Student extends User{
             this.gpa = 0;
         }
     }
-	
+    
+    public String gpaConverter(Double gpa) {
+        if (gpa >= 4.0) {
+            return "A";
+        } else if (gpa >= 3.7) {
+            return "A-";
+        } else if (gpa >= 3.3) {
+            return "B+";
+        } else if (gpa >= 3.0) {
+            return "B";
+        } else if (gpa >= 2.7) {
+            return "B-";
+        } else if (gpa >= 2.3) {
+            return "C+";
+        } else if (gpa >= 2.0) {
+            return "C";
+        } else if (gpa >= 1.7) {
+            return "C-";
+        } else if (gpa >= 1.3) {
+            return "D+";
+        } else if (gpa >= 1.0) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+    public Double convertMarkToGradePoints(Double totalPoints) {
+        if (totalPoints >= 95) {
+            return 4.0;
+        } else if (totalPoints >= 90) {
+            return 3.67;
+        } else if (totalPoints >= 85) {
+            return 3.33;
+        } else if (totalPoints >= 80) {
+            return 3.0;
+        } else if (totalPoints >= 75) {
+            return 2.67;
+        } else if (totalPoints >= 70) {
+            return 2.33;
+        } else if (totalPoints >= 65) {
+            return 2.0;
+        } else if (totalPoints >= 60) {
+            return 1.67;
+        } else if (totalPoints >= 55) {
+            return 1.33;
+        } else if (totalPoints >= 50) {
+            return 1.0;
+        } else {
+            return 0.0;
+        }
+    }
+
 	public boolean equals(Object o) {
 		if(!super.equals(o))return false;
 		Student s = (Student)o;
