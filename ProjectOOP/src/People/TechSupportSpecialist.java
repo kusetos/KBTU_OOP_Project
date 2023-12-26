@@ -1,11 +1,22 @@
 package People;
 
+import java.util.Date;
 import java.util.Vector;
 import DataBase.Data;
 import Entities.Order;
 import Enumerators.ITOrderStatus;
 
 public class TechSupportSpecialist extends Employee {
+	
+	public TechSupportSpecialist() {
+		
+	}
+	
+	public TechSupportSpecialist(String username, String password, Date birthDate, String phoneNumber, String email, String name, String surname, 
+			double Salary, Date hireDate) {
+		super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
+	}
+	
 	
 	public Vector<Order> viewNewOrders() {
         Vector<Order> newOrders = new Vector<>();
