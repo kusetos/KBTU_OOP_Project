@@ -1,55 +1,76 @@
 package Entities;
 
-import People.GraduateStudent;
-import ResearcherStuff.ResearchPaper;
+import People.*;
+import java.util.*;
 
-/**
-* @generated
-*/
-public class DiplomaProject extends Project {
-    
-    
-    /**
-    * @generated
-    */
-    private GraduateStudent graduateStudent;
-    
-    /**
-    * @generated
-    */
-    private ResearchPaper researchPaper;
-    
-    
 
-    
-    /**
-    * @generated
-    */
-    public GraduateStudent getGraduateStudent() {
-        return this.graduateStudent;
-    }
-    
-    /**
-    * @generated
-    */
-    public GraduateStudent setGraduateStudent(GraduateStudent graduateStudent) {
-        this.graduateStudent = graduateStudent;
-    }
+public class DiplomaProject{
     
     
-    /**
-    * @generated
-    */
-    public ResearchPaper getResearchPaper() {
-        return this.researchPaper;
-    }
-    
-    /**
-    * @generated
-    */
-    public ResearchPaper setResearchPaper(ResearchPaper researchPaper) {
-        this.researchPaper = researchPaper;
-    }
+	private String topic;
+	
+	private Vector<User> participants;
+
+	public DiplomaProject(String topic, Vector<User> participants) {
+		this.topic = topic;
+		this.participants = participants;
+	}
+	public DiplomaProject() {
+		
+	}
+	
+	
+	public String getTopic() {
+		return topic;
+	}
+
+
+
+
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+
+
+
+
+	public Vector<User> getParticipants() {
+		return participants;
+	}
+
+
+	public void setParticipants(Vector<User> participants) {
+		this.participants = participants;
+	}
+
+	public void join(User user) {
+		if(participants.equals(null)) {
+			participants = new Vector<User>();
+		}
+		participants.add(user);
+	}
+
+
+
+	public int hashCode() {
+		return Objects.hash(participants, topic);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DiplomaProject other = (DiplomaProject) obj;
+		return Objects.equals(participants, other.participants) && Objects.equals(topic, other.topic);
+	}
+	
+	
     
     
     
