@@ -40,8 +40,14 @@ public class Employee extends User {
         this.hireDate = hireDate;
     }
 
+    //sending message
     public void sendMessage(Employee recipient, String text) {
         Message newMessage = new Message(recipient, text, this); // Create message only when needed
         sentMessages.addElement(newMessage); // Store sent message
+    }
+
+    //viewing all messages
+    public Vector<Message> viewMessages(){
+        return sentMessages;
     }
 }
