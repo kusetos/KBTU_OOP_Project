@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Vector;
+import java.util.Map.Entry;
 
 import Entities.Course;
 import Enumerators.Faculty;
@@ -65,10 +66,6 @@ public class Student extends User{
 
 	public double getGpa() {
 		return gpa;
-	}
-
-	public void setGpa(double gpa) {
-		this.gpa = gpa;
 	}
 
 	public int getCreditLimit() {
@@ -174,6 +171,24 @@ public class Student extends User{
 	public void changeFaculty(Faculty faculty) {
 		this.faculty = faculty;
 	}
+	
+    public void calculateGPA() {
+        double totalScore = 0;
+        int totalCredits = 0;
+        for (Entry<Course, Mark> entry : marks.entrySet()) {
+            Course course = entry.getKey();
+            Mark mark = entry.getValue();
+
+            totalScore += mark.totalPoints() * course.getCredits();
+            totalCredits += course.getCredits();
+        }
+
+        if (totalCredits > 0) {
+            this.gpa = totalScore / totalCredits;
+        } else {
+            this.gpa = 0;
+        }
+    }
 	
 	public boolean equals(Object o) {
 		if(!super.equals(o))return false;
