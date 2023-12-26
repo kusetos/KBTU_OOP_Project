@@ -113,7 +113,7 @@ public class Student extends User{
 	public String getMarkOfCourse(Course course) {
 		Mark mark = marks.get(course);
 		if(mark == null)return null;
-		return course + ": first attestation: " + mark.sumOfFirstAtt() + " second attestation: " + mark.sumOfSecondAtt() + " final score: " + mark.getFinalScore() + " total score: " + mark.totalPoints();
+		return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + "\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints();
 	}
 	
 	public Organization getOrganization() {
@@ -121,6 +121,14 @@ public class Student extends User{
 	}
 	public void setOrganization(Organization org) {
 		this.org = org;
+	}
+	
+	public HashMap<Course, Mark> getMarks() {
+		return marks;
+	}
+	
+	public void setMarks(HashMap<Course, Mark> marks) {
+		this.marks = marks;
 	}
 	public void addCourse(Course course) {
 		Mark m = new Mark();
@@ -144,8 +152,10 @@ public class Student extends User{
 	public Teacher viewTeacherOfCourse(Course course) {
 		return course.getTeacher();
 	}
-	public Transcript getTranscript() {
-		return transcript;
+	public void getTranscript() {
+		for(Course course : courses) {
+			getMarkOfCourse(course);
+		}
 	}
 	public void rateTeachers(Teacher teacher, int rate) {
 		teacher.addRate(rate);
