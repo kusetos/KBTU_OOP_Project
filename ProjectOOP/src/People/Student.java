@@ -6,8 +6,8 @@ import java.util.Vector;
 import java.util.Map.Entry;
 
 import Entities.Course;
+import Entities.Organization;
 import Enumerators.Faculty;
-import Enumerators.Organization;
 import Entities.Mark;
 
 public class Student extends User{
@@ -27,7 +27,7 @@ public class Student extends User{
 	}
 	
 	public Student(String username, String password, Date birthDate, String phoneNumber, String email, String name,
-			String surname, String id, int yearOfStudy, double gpa, int creditLimit, Faculty faculty, String speciality, Organization org) {
+			String surname, String id, int yearOfStudy, double gpa, int creditLimit, Faculty faculty, String speciality) {
 		super(username, password, birthDate, phoneNumber, email, name, surname);
 		this.id = id;
 		this.yearOfStudy = yearOfStudy;
@@ -35,7 +35,6 @@ public class Student extends User{
 		this.creditLimit = creditLimit;
 		this.faculty = faculty;
 		this.speciality = speciality;
-		this.org = org;
 	}
 	
 
@@ -83,7 +82,14 @@ public class Student extends User{
 	public void setFaculty(Faculty faculty) {
 		this.faculty = faculty;
 	}
-
+	public void setOrganization(Organization org) {
+		this.org = org;
+		org.addMember(this);
+	}
+	
+	public Organization getOrganization() {
+		return org;
+	}
 	public String getSpeciality() {
 		return speciality;
 	}
@@ -111,13 +117,6 @@ public class Student extends User{
 		Mark mark = marks.get(course);
 		if(mark == null)return null;
 		return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + "\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints();
-	}
-	
-	public Organization getOrganization() {
-		return org;
-	}
-	public void setOrganization(Organization org) {
-		this.org = org;
 	}
 	
 	public HashMap<Course, Mark> getMarks() {
@@ -154,11 +153,32 @@ public class Student extends User{
 			getMarkOfCourse(course);
 		}
 	}
+	
+	public void viewTranscript() {
+		for(Course course : courses) {
+			System.out.println(course);
+		}
+		System.out.println("GPA: " + gpa);
+	}
 	public void rateTeachers(Teacher teacher, int rate) {
 		teacher.addRate(rate);
 	}
 	public Organization studentOrganization() {
 		return this.studentOrganization();
+	}
+	
+	public void becomeHead() {
+		org.setHead(this);
+	}
+	
+	public void joinOrganization(Organization org) {
+		this.org = org;
+		org.addMember(this);
+	}
+	
+	public void leaveOrganization() {
+		this.org = null;
+		org.removeMember(this);
 	}
 	
 	public void showInfo() {
@@ -200,5 +220,4 @@ public class Student extends User{
 		return Objects.hash(super.hashCode(), id, speciality, faculty);
 	}
 	
-
 }
