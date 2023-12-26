@@ -8,6 +8,7 @@ import java.util.Vector;
 import DataBase.Data;
 import Entities.Course;
 import Entities.News;
+import Entities.Order;
 import Enumerators.ManagerType;
 import Comparators.StudentGPAComparator;
 import Comparators.UserNameComparator;
@@ -29,16 +30,21 @@ public class Manager extends Employee {
 
     //                          Operations                                  
     
+    //approving(adding course to student) student regisrtation
     public void approveStudentRegistration(Course course, Student student) {
-        //TODO
+        student.addCourse(course);
     }
     
+    //statistical reports on academic performance of a student
     public void createStatisticalReports(Student student) {
-        //TODO
+        student.showInfo();
+        System.out.println(student.getGpa());
+        student.viewTranscript();
     }
     
+    //assigning(adding) course to teacher
     public void assignCoursesToTeachers(Course course, Teacher teacher) {
-        //TODO
+        teacher.addCourse(course);
     }
     
     //we divided managing new into 2. posting news and deleting news. Next one is Posting news
@@ -109,7 +115,10 @@ public class Manager extends Employee {
         }
     }
     
-    public void viewRequestsByEmployees() {
-        //TODO
+    //viewing all requests by employees
+    public Vector<Order> viewRequestsByEmployees() {
+        Vector<Order> orders;
+        orders = data.getOrders();
+        return orders;
     }
 }
