@@ -38,6 +38,10 @@ public class Order implements Serializable {
     	this.status = ITOrderStatus.NEW;
     	this.sentTime = new Date();
     }
+    public Order(ITOrderStatus status) {
+    	this.status = status;
+
+    }
     
     public String getDescription() { // GETTER ТЕКСТ ЗАПРОСА DESCRIPTION
         return this.description;
