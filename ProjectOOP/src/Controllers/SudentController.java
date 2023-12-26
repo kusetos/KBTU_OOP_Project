@@ -1,9 +1,18 @@
 package Controllers;
 
 import java.text.ParseException;
+import java.util.Scanner;
+
+import Entities.Course;
+import People.Student;
 
 public class SudentController {
+	Scanner scanner = new Scanner(System.in);
+	String answer;
+	Student student = new Student();
+	
 	public void mainMenu() throws ParseException {
+		
 		System.out.flush();
 		System.out.println("---===KBTU UNIVERSITY SYSTEM===---");
 		System.out.println("---===========Student==========---\n");
@@ -20,6 +29,43 @@ public class SudentController {
 		System.out.println("10  :  more");
 		System.out.println("0  :  logging out");
 		
+		answer = scanner.next();
+		switch (answer) {
+		case "1": {
+			student.viewCourses();
+		}
+		case "2": {
+			student.registerForCourses(new Course());
+		}
+		case "3": {
+			student.viewTeacherOfCourse(new Course());
+		}
+		case "4": {
+			student.getMarks();
+		}
+		case "5": {
+			student.viewTranscript();
+		}
+		case "6": {
+			student.viewTeacherOfCourse(new Course());
+		}
+		case "7": {
+			student.studentOrganization();
+		}
+		case "8": {
+			student.calculateGPA();
+		}
+		case "9": {
+			student.showInfo();
+		}
+		case "0": {
+			
+			student.setIsResearcher(false);
+		}
+		
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + answer);
+		}
 		 
 		
 	}
