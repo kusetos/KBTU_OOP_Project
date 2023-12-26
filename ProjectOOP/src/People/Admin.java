@@ -78,8 +78,11 @@ public class Admin extends Employee{
 		Data.removeTechSupport(techSup);
 	}
 	
+	public void updateUser(User user) {
+		
+	}
 	
     public void viewLogs() {
-        //TODO
+        
     }
 }
