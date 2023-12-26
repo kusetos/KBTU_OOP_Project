@@ -7,7 +7,7 @@ import Entities.Course;
 import Entities.Lesson;
 import Enumerators.TeacherType;
 
-public class Teacher extends Employee  implements Serializable{
+public class Teacher extends Employee implements Serializable{
     
     private Vector<Course> courses;
     private Vector<Student> courseStudents;

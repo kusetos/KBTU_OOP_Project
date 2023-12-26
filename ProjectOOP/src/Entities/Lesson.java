@@ -87,6 +87,9 @@ public class Lesson {
         this.code = code;
     }
     
-
+    public String toString() {
+		return "Lesson [lessonName=" + lessonName + ", courseName=" + course.getCourseName() +
+				", language=" + language + ", lessonType=" + type + ", officeNumber=" + officeNumber + ", code=" + code + "]";
+	}
     
 }
