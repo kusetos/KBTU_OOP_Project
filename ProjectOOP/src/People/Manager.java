@@ -1,334 +1,115 @@
 package People;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Vector;
+
 import DataBase.Data;
 import Entities.Course;
-import Entities.Message;
 import Entities.News;
+import Enumerators.ManagerType;
+import Comparators.StudentGPAComparator;
+import Comparators.UserNameComparator;
 
-/**
-* @generated
-*/
 public class Manager extends Employee {
     
-    /**
-    * @generated
-    */
     private ManagerType managerType;
-    
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
-    private News news;
-    
-    /**
-    * @generated
-    */
+    private Vector<News> news = new Vector<>();
     private Data data;
     
-    /**
-    * @generated
-    */
-    private Message message;
-    
-    /**
-    * @generated
-    */
-    private Message message;
-    
-    /**
-    * @generated
-    */
-    private Message message;
-    
-    /**
-    * @generated
-    */
-    private Message message;
-    
-    
-
-    /**
-    * @generated
-    */
-    private ManagerType getManagerType() {
-        return this.managerType;
+    //getter and setter for managerType
+    private ManagerType getManagerType(){
+        return managerType;
     }
     
-    /**
-    * @generated
-    */
-    private ManagerType setManagerType(ManagerType managerType) {
+    private void setManagerType(ManagerType managerType){
         this.managerType = managerType;
     }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Data getData() {
-        return this.data;
-    }
-    
-    /**
-    * @generated
-    */
-    public Data setData(Data data) {
-        this.data = data;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public News getNews() {
-        return this.news;
-    }
-    
-    /**
-    * @generated
-    */
-    public News setNews(News news) {
-        this.news = news;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Message getMessage() {
-        return this.message;
-    }
-    
-    /**
-    * @generated
-    */
-    public Message setMessage(Message message) {
-        this.message = message;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Message getMessage() {
-        return this.message;
-    }
-    
-    /**
-    * @generated
-    */
-    public Message setMessage(Message message) {
-        this.message = message;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Message getMessage() {
-        return this.message;
-    }
-    
-    /**
-    * @generated
-    */
-    public Message setMessage(Message message) {
-        this.message = message;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Message getMessage() {
-        return this.message;
-    }
-    
-    /**
-    * @generated
-    */
-    public Message setMessage(Message message) {
-        this.message = message;
-    }
-    
-    
-    
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public void approveStudentRegistration(Course course) {
+    public void approveStudentRegistration(Course course, Student student) {
         //TODO
     }
     
-    /**
-    * @generated
-    */
-    public void createStatisticalReports() {
+    public void createStatisticalReports(Student student) {
         //TODO
     }
     
-    /**
-    * @generated
-    */
-    public void assignCoursesToTeachers() {
+    public void assignCoursesToTeachers(Course course, Teacher teacher) {
         //TODO
     }
     
-    /**
-    * @generated
-    */
-    public void manageNews() {
-        //TODO
+    //we divided managing new into 2. posting news and deleting news. Next one is Posting news
+    public void postNews(Date newsDate, String title, String text) {
+        News newPost = new News(newsDate, title, text, this); 
+        news.addElement(newPost); 
+    }
+
+    //deleting news
+    public void deleteNews(News newNews){
+        news.removeElement(newNews);
+    }
+
+    //viewing all news
+    public Vector<News> viewNews(){
+        return news;
     }
     
-    /**
-    * @generated
-    */
-    public void viewInfoAboutStudents() {
-        //TODO
+    //view info about student
+    public void viewInfoAboutStudents(Student student) {
+        student.showInfo();
+    }
+
+    //view info about student sorted by gpa
+    public Vector<Student> viewInfoAboutStudentsByGPA(boolean ascending) {
+        Vector<Student> students;
+        students = data.getStudents();
+        Collections.sort(students, StudentGPAComparator);
+        //sorting them ascending by GPA if the boolean is true and descending if false
+        if (ascending)
+            return students;
+        else {
+            Collections.reverse(students);
+            return students;
+        }
+    }
+
+    //view info about student sorted by name
+    public Vector<Student> viewInfoAboutStudentsByName(boolean alphabetically) {
+        Vector<Student> students;
+        students = data.getStudents();
+        Collections.sort(students, UserNameComparator);
+        //sorting them alphabetically if the boolean is true and reverse if false
+        if (alphabetically){
+            return students;
+        } else {
+            Collections.reverse(students);
+            return students;
+        }
+    }
+
+    //view info about teacher
+    public void viewInfoAboutTeachers(Teacher teacher) {
+        teacher.showInfo();
+    }
+
+    //view info about teacher by name
+    public Vector<Teacher> viewInfoAboutTeachersByName(Teacher teacher, boolean alphabetically) {
+        Vector<Teacher> teachers;
+        teachers = data.getTeacher();
+        Collections.sort(teachers, UserNameComparator);
+        //sorting them alphabetically if the boolean is true and reverse if false
+        if (alphabetically){
+            return teachers;
+        } else {
+            Collections.reverse(teachers);
+            return teachers;
+        }
     }
     
-    /**
-    * @generated
-    */
-    public void viewInfoAboutTeachers() {
-        //TODO
-    }
-    
-    /**
-    * @generated
-    */
     public void viewRequestsByEmployees() {
         //TODO
     }
-
-
-    
-    
 }
-

@@ -103,6 +103,10 @@ public class Data implements Serializable{
         return students;
     }
 
+    public static Vector<Teacher> getTeacher() {
+        return teachers;
+    }
+
     
     public static Vector<Journal> getJournals() {
         return journals;
