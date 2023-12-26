@@ -1,11 +1,12 @@
 package Entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Vector;
 import People.Manager;
 
 
-public class News {
+public class News implements Serializable{
 
     private Date newsDate;
     

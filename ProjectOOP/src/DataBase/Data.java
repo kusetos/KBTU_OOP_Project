@@ -1,30 +1,17 @@
 package DataBase;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.Vector;
 
-import Entities.Course;
-import Entities.Journal;
-import Entities.Message;
-import Entities.News;
-import Entities.Order;
-import People.Admin;
-import People.BachelorStudent;
-import People.Employee;
-import People.GraduateStudent;
-import People.Manager;
-import People.Student;
-import People.User;
+import Entities.*;
+import People.*;
 
 
 public class Data implements Serializable{
     
     private static Vector<Employee>employees = new Vector<>();
     private static Vector<Student> students = new Vector<>();
+    private static Vector<Teacher> teachers = new Vector<>();
 
     private static Vector<News> news = new Vector<>();
     private static Vector<Message> messages = new Vector<>();
@@ -39,15 +26,58 @@ public class Data implements Serializable{
     private static Vector<Journal> journals = new Vector<>();
 
     public static void saveAndSerialize() {
-    	serialize(orders);
+    	//people
+    	//serialize(users, "SerializableObjects/users.bin");
+    	//serialize(students, "SerializableObjects/students.bin");
+    	serialize(employees, "SerializableObjects/employees.bin");
+    	serialize(managers, "SerializableObjects/managers.bin");
+    	serialize(bachelorStudents, "SerializableObjects/bachelorStudents.bin");
+    	serialize(graduateStudents, "SerializableObjects/graduateStudents.bin");
+    	serialize(teachers, "SerializableObjects/teachers.bin");
+    	
+    	//entities
+    	serialize(courses, "SerializableObjects/graduateStudents.bin");
+    	serialize(orders, "SerializableObjects/orders.bin");
+    	serialize(news, "SerializableObjects/news.bin");
+    	serialize(messages, "SerializableObjects/messages.bin");
+    	serialize(journals, "SerializableObjects/journals.bin");
+    	
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static void loadAndDeserialize() throws ClassNotFoundException {
+    	
+    	employees = (Vector<Employee>) deserialize("SerializableObjects/employees.bin");
+		managers = (Vector<Manager>) deserialize("SerializableObjects/managers.bin");
+		bachelorStudents = (Vector<BachelorStudent>) deserialize("SerializableObjects/bachelorStudents.bin");
+		graduateStudents = (Vector<GraduateStudent>) deserialize("SerializableObjects/graduateStudents.bin");
+		teachers = (Vector<Teacher>) deserialize("SerializableObjects/teachers.bin");
+		courses = (Vector<Course>) deserialize("SerializableObjects/courses.bin");
+		news = (Vector<News>) deserialize("SerializableObjects/news.bin");
+		messages = (Vector<Message>) deserialize("SerializableObjects/messages.bin");
+		journals = (Vector<Journal>) deserialize("SerializableObjects/journals.bin");
+		
+    }
+    
+    private static Object deserialize(String file) throws ClassNotFoundException {
+    	try {
+    		FileInputStream fis = new FileInputStream(file);
+    		ObjectInputStream ois = new ObjectInputStream(fis);
+    		
+    		return ois.readObject();
+    	}catch(IOException e) {
+    	e.printStackTrace();
+    	}
+		return file;
     }
     	
-    private static void serialize(Object o) {
+    private static void serialize(Object o, String file) {
     	try {
-    		FileOutputStream fos = new FileOutputStream("DataBase/testData.bin");
+    		FileOutputStream fos = new FileOutputStream(file);
     		ObjectOutputStream oos = new ObjectOutputStream(fos);
     		oos.writeObject(o);
     		oos.close();
+    		fos.close();
     	}catch(IOException e){
     		e.printStackTrace();
     	}
