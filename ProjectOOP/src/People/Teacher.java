@@ -5,12 +5,14 @@ import java.util.Date;
 import java.util.Vector;
 import Entities.Course;
 import Entities.Lesson;
+import Enumerators.TeacherType;
 
 public class Teacher extends Employee  implements Serializable{
     
     private Vector<Course> courses;
     private Vector<Student> courseStudents;
     private String compliant;
+	private TeacherType teacherType;
 
     public Teacher() {
     	
@@ -19,7 +21,7 @@ public class Teacher extends Employee  implements Serializable{
     public Teacher(String username, String password, Date birthDate, String phoneNumber, String email, String name, String surname, 
     		double Salary, Date hireDate, TeacherType teacherType) {
         super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
-        this.teacherType = teacherType;
+        this.setTeacherType(teacherType);
     }
     
     // we renamed viewCourse as getCourse and divided manageCourse as setCourse, addCourse and removeCourse
@@ -66,4 +68,12 @@ public class Teacher extends Employee  implements Serializable{
     public void setCompliant(String compliant){
         this.compliant = compliant;
     }
+
+	public TeacherType getTeacherType() {
+		return teacherType;
+	}
+
+	public void setTeacherType(TeacherType teacherType) {
+		this.teacherType = teacherType;
+	}
 }

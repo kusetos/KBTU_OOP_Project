@@ -1,22 +1,25 @@
 package People;
 import java.util.Date;
-
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.Vector;
 
 import Entities.Course;
 import Enumerators.Faculty;
 import Enumerators.Organization;
+import Entities.Mark;
+
 public class Student extends User{
-	String id;
-	int yearOfStudy;
-	int totalCredits;
-	Vector<Course> courses = new Vector<>();
-	double gpa;
-	int creditLimit;
-	Faculty faculty;
-	String speciality;
-	Organization org;
+	private String id;
+	private int yearOfStudy;
+	private int totalCredits;
+	private Vector<Course> courses = new Vector<>();
+	private double gpa;
+	private int creditLimit;
+	private Faculty faculty;
+	private String speciality;
+	private Organization org;
+	private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
 	
 	public Student() {
 		super();
@@ -35,7 +38,7 @@ public class Student extends User{
 	}
 	
 
-		
+	
 	public String getId() {
 		return id;
 	}
@@ -91,6 +94,27 @@ public class Student extends User{
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}
+	public void setPoints(Course course, Double points,int typeOfPoints ) {
+		Mark mark = marks.get(course);
+		if(mark == null && courses.contains(course)) {
+			mark = new Mark();
+			marks.put(course, mark);
+		}
+		if(typeOfPoints == 1) {
+			mark.setFirstAttMarks(points);
+		}
+		if(typeOfPoints == 2) {
+			mark.setSecondAttMarks(points);
+		}
+		if(typeOfPoints == 3) {
+			mark.setFinalScore(points);
+		}
+	}
+	public String getMarkOfCourse(Course course) {
+		Mark mark = marks.get(course);
+		if(mark == null)return null;
+		return course + ": first attestation: " + mark.sumOfFirstAtt() + " second attestation: " + mark.sumOfSecondAtt() + " final score: " + mark.getFinalScore() + " total score: " + mark.totalPoints();
+	}
 	
 	public Organization getOrganization() {
 		return org;
@@ -98,7 +122,15 @@ public class Student extends User{
 	public void setOrganization(Organization org) {
 		this.org = org;
 	}
-	
+	public void addCourse(Course course) {
+		Mark m = new Mark();
+		this.marks.put(course, m);
+		this.courses.add(course);
+	}
+	public void dropCourse(Course course) {
+		marks.remove(course);
+		courses.remove(course);
+	}
 	public String viewCourses() {
 		String strCourses = new String();
 		for(Course c : courses) {
@@ -108,7 +140,6 @@ public class Student extends User{
 		return strCourses;
 	}
 	public void registerForCourses(Course course) {
-		manager.approveStudentRegistration(course);
 	}
 	public Teacher viewTeacherOfCourse(Course course) {
 		return course.getTeacher();
@@ -123,8 +154,17 @@ public class Student extends User{
 		return this.studentOrganization();
 	}
 	
+	public void showInfo() {
+		System.out.println("-----------" + this.getId() + "-----------");
+		System.out.println("Student: " + this.getName() + " " + this.getSurname());
+		System.out.println("Faculty " + this.getFaculty());
+		System.out.println("Speciality " + this.getSpeciality());
+	}
 	
-
+	public void changeFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+	
 	public boolean equals(Object o) {
 		if(!super.equals(o))return false;
 		Student s = (Student)o;
@@ -135,4 +175,5 @@ public class Student extends User{
 		return Objects.hash(super.hashCode(), id, speciality, faculty);
 	}
 	
+
 }
