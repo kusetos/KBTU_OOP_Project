@@ -210,6 +210,9 @@ public class Data implements Serializable{
     public static void removeBachelorStudents(BachelorStudent student) {//BACHELOER STUDENT
     	bachelorStudents.remove(student);
     }
+    public static void removeGraduateStudents(GraduateStudent gStudent) {//Graduate STUDENT
+    	graduateStudents.remove(gStudent);
+    }
     
     public static void removeManager(Manager manager) {//MANAGER
     	managers.remove(manager);

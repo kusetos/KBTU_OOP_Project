@@ -32,6 +32,10 @@ public class Admin extends Employee{
 
         Data.addBachelorStudent(student);
     }
+	public void addGraduateStudent(GraduateStudent student) {
+
+		Data.addGraduateStudent(student);
+	}
 	
 	public void addManager(Manager manager) {
         Data.addManager(manager);
@@ -60,6 +64,10 @@ public class Admin extends Employee{
 	
 	public void removeBachelorStudent(BachelorStudent student) {
 		Data.removeBachelorStudents(student);
+	}
+	
+	public void removeGraduateStudent(GraduateStudent student) {
+		Data.removeGraduateStudents(student);
 	}
 	
 	public void removeManager(Manager manager) {
