@@ -12,6 +12,7 @@ public class Data implements Serializable{
     private static Vector<Employee>employees = new Vector<>();
     private static Vector<Student> students = new Vector<>();
     private static Vector<Teacher> teachers = new Vector<>();
+    private static Vector<TechSupportSpecialist> techSupports = new Vector<>();
 
     private static Vector<News> news = new Vector<>();
     private static Vector<Message> messages = new Vector<>();
@@ -41,6 +42,7 @@ public class Data implements Serializable{
     	serialize(news, "SerializableObjects/news.bin");
     	serialize(messages, "SerializableObjects/messages.bin");
     	serialize(journals, "SerializableObjects/journals.bin");
+    	serialize(techSupports, "SerializableObjects/techSupports.bin");
     	
     }
     
@@ -51,11 +53,14 @@ public class Data implements Serializable{
 		managers = (Vector<Manager>) deserialize("SerializableObjects/managers.bin");
 		bachelorStudents = (Vector<BachelorStudent>) deserialize("SerializableObjects/bachelorStudents.bin");
 		graduateStudents = (Vector<GraduateStudent>) deserialize("SerializableObjects/graduateStudents.bin");
+		
 		teachers = (Vector<Teacher>) deserialize("SerializableObjects/teachers.bin");
 		courses = (Vector<Course>) deserialize("SerializableObjects/courses.bin");
+		orders = (Vector<Order>) deserialize("SerializableObjects/orders.bin");
 		news = (Vector<News>) deserialize("SerializableObjects/news.bin");
 		messages = (Vector<Message>) deserialize("SerializableObjects/messages.bin");
 		journals = (Vector<Journal>) deserialize("SerializableObjects/journals.bin");
+		techSupports = (Vector<TechSupportSpecialist>) deserialize("SerializableObjects/techSupports.bin");
 		
     }
     
@@ -119,6 +124,9 @@ public class Data implements Serializable{
         return admins;
     }
 
+    public static Vector<TechSupportSpecialist> getTechSupports() {
+    	return techSupports;
+    }
     
 	/*
 	 * public static Vector<Researcher> getResearchers() { return researchers; }
@@ -144,15 +152,62 @@ public class Data implements Serializable{
     }
     
 
-
-    /*
-    public Order getOrder() {
-        return this.order;
-    }
-    */
+    //
     public static void addOrder(Order order) {
     	orders.add(order);
     }
+    
+    
+    // ADD USERS
+    public static void addUser(User user) {
+    	users.add(user);
+    }
+    
+    public static void addTeacher(Teacher teacher) {
+    	teachers.add(teacher);
+    }
+    
+    public static void addEmployee(Employee emp) {
+    	employees.add(emp);
+    }
+    
+    public static void addBachelorStudent(BachelorStudent student) {
+    	bachelorStudents.add(student);
+    }
+    
+    public static void addGraduateStudent(GraduateStudent student) {
+    	graduateStudents.add(student);
+    }
+    
+    public static void addManager(Manager manager) {
+    	managers.add(manager);
+    }
+    
+    public static void addTechSupport(TechSupportSpecialist ts) {
+    	techSupports.add(ts);
+    }
+    
+    
+    //REMOVE USERS
+    public static void removeUser(User user) {
+    	users.remove(user);
+    }
+    public static void removeTeacher(Teacher techer) {
+    	teachers.remove(techer);
+    }
+    public static void removeEmployee(Employee empl) {
+    	employees.remove(empl);
+    }
+    public static void removeBachelorStudents(BachelorStudent student) {
+    	bachelorStudents.remove(student);
+    }
+    public static void removeManager(Manager manager) {
+    	managers.remove(manager);
+    }
+    public static void removeTechSupport(TechSupportSpecialist techsupp) {
+    	techSupports.remove(techsupp);
+    }
+    
     
 
 }

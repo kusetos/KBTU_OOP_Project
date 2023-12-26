@@ -19,39 +19,65 @@ public class Admin extends Employee{
 	}
 	
 	//add user
-	public void addTeacher(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
-			String surname, double Salary, Date hireDate, TeacherType teacherType) {
-        Teacher teacher = new Teacher(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate, teacherType);
-        Data.users.add(teacher);
+	public void addUser(User user) {
+		Data.addUser(user);
 	}
 	
-	public void addStudent(String username, String password, Date birthDate, String phoneNumber, String email, String name,
-			String surname, String id, int yearOfStudy, double gpa, int creditLimit, Faculty faculty, String speciality, Organization org) {
-        Student student = new Student(username, password, birthDate, phoneNumber, email, name,
-    			surname, id, yearOfStudy, gpa, creditLimit, faculty, speciality, org);
-        Data.users.add(student);
-    }
-	
-	public void addManager(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
-			String surname, double Salary, Date hireDate, ManagerType managerType) {
-        Manager manager = new Manager(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate, managerType);
-        Data.users.add(manager);
+	public void addAdmin(Admin admin) {
+		Data.addAdmin(admin);
 	}
 	
-	public void addTechSupportSpecialist(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
-			String surname, double Salary, Date hireDate) {
-        TechSupportSpecialist techSupportSpecialist = new TechSupportSpecialist(username, password, birthDate, phoneNumber, email, name, surname, Salary, hireDate);
-        Data.users.add(techSupportSpecialist);
+	public void addTeacher(Teacher teacher) {
+        Data.addTeacher(teacher);
+	}
+	
+	public void addBachelorStudent(BachelorStudent student) {
+
+        Data.addBachelorStudent(student);
     }
 	
-	//remove user
-	public void removeUser(String username, String name, String surname) {
-    	for(User u : Data.users) {
-    		if(u.getUsername().equals(username) && u.getName().equals(name) && u.getSurname().equals(surname)) {
-    			Data.users.remove(u);
-    		}
-    	}
+	public void addManager(Manager manager) {
+        Data.addManager(manager);
+	}
+	
+	public void addEmployee(Employee empl) {
+		Data.addEmployee(empl);
+	}
+	
+	public void addTechSupportSpecialist(TechSupportSpecialist techSupport) {
+        Data.addTechSupport(techSupport);
     }
+	
+	//remove users
+	public void removeUser(User user) {
+		Data.removeUser(user);
+	}
+	
+	public void removeAdmin(Admin admin) {
+		Data.removeAdmin(admin);
+	}
+	
+	public void removeTeacher(Teacher teacher) {
+		Data.removeTeacher(teacher);
+	}
+	
+	public void removeBachelorStudent(BachelorStudent student) {
+		Data.removeBachelorStudents(student);
+	}
+	
+	public void removeManager(Manager manager) {
+		Data.removeManager(manager);
+	}
+	
+	public void removeEmployee(Employee employee) {
+		Data.removeUser(employee);
+	}
+	
+	
+	public void removeTechSupport(TechSupportSpecialist techSup) {
+		Data.removeTechSupport(techSup);
+	}
+	
 	
     public void viewLogs() {
         //TODO
