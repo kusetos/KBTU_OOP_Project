@@ -1,44 +1,40 @@
 package People;
 
-import java.util.Date;
 import java.util.Vector;
 import DataBase.Data;
 import Entities.Order;
+import Enumerators.ITOrderStatus;
 
 public class TechSupportSpecialist extends Employee {
-    
-    public TechSupportSpecialist(String username, String password, Date birthDate, String phoneNumber, String email, String name, 
-			String surname, double Salary, Date hiredate) {
-		super(username, password, birthDate, phoneNumber, email, name, surname, Salary, hiredate);
-	}
-    // НЕ НАДО ТАК ДЕЛАТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void acceptOrder(Order order) {
-        Vector<Order> newOrders = Data.getOrders();
-        if (newOrders.contains(order)) {
-            newOrders.remove(order);
+	
+	public Vector<Order> viewNewOrders() {
+        Vector<Order> newOrders = new Vector<>();
+        for (Order order : Data.getOrders()) {
+            if (order.getStatus() == ITOrderStatus.NEW) {
+                newOrders.add(order);
+            }
+        }
+        return newOrders;
+    }
+
+    public String acceptOrder(Order order) {
+        if (order.getStatus() == ITOrderStatus.NEW) {
             order.viewStatus();
-            System.out.println("The order has been accepted: " + order.getDescription());
-        } else {
-            System.out.println("This order is not in the list of new orders.");
+            order.setStatus(ITOrderStatus.OLD); // Установка статуса "OLD" после принятия заказа
+            return "Order Accepted";
+        } 
+	else {
+            return "Order has already been accepted or rejected.";
         }
     }
-    
-    public void rejectOrder(Order order) {
-        Vector<Order> newOrders = Data.getOrders();
-        if (newOrders.contains(order)) {
-            newOrders.remove(order);
-            System.out.println("The order was rejected: " + order.getDescription());
-        } else {
-            System.out.println("The order was rejected.");
-        }
-    }
-    
-    public void viewNewOrders() {
-        Vector<Order> newOrders = Data.getOrders();
-        System.out.println("List of new orders:");
-        for (Order order : newOrders) {
-            System.out.println(order);
+
+    public String rejectOrder(Order order) {
+        if (order.getStatus() == ITOrderStatus.NEW) {
+            Data.getOrders().remove(order);
+            return "Order Rejected";
+        } 
+	else {
+            return "Order has already been accepted or rejected.";
         }
     }
 }
-

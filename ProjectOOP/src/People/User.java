@@ -1,19 +1,25 @@
 package People;
 
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
+import Comparators.*;
 import DataBase.Data;
 import Entities.Order;
+import ResearcherStuff.*;
+
 public class User {
-	String username;
-	String password;
-	Date birthDate;
-	String phoneNumber;
-	String email;
-	String name;
-	String surname;
+	private String username;
+	private String password;
+	private Date birthDate;
+	private String phoneNumber;
+	private String email;
+	private String name;
+	private String surname;
 	
+	private boolean isResearcher = false;
+	private double hIndex;
+	private Vector<ResearchPaper> researchPapers;
+
 	public User() {
 		
 	}
@@ -100,7 +106,54 @@ public class User {
 		Data.addOrder(order);
 	}
 	
+	//RESEARCHER ---------------------------------------------------------------
 	
+	// GET/SET isResearcher
+	public boolean getIsResearcher() {
+		return isResearcher;
+	}
+	
+	public void setIsResearcher(boolean set) {
+		isResearcher = set;
+	}
+    
+	//GET/SET hIndex
+    public double getHIndex() {
+        return this.hIndex;
+    }
+    public void setHIndex(double i) {
+    	this.hIndex = i;
+    }
+
+    public double calculateHIndex() {
+    	return researchPapers.size();
+    }
+
+    // GET can be Supervisor
+    public boolean eligibleToBeSupervisor() { 
+        if(this.hIndex > 3) return true;
+        else return false;
+    }
+    
+    @SuppressWarnings("unchecked")
+	public String printPapers(String compType) {
+    	
+		Vector<ResearchPaper> papers = (Vector<ResearchPaper>) researchPapers.clone();
+		String s = "";
+        if(compType == "1") {
+        	PaperDatePublishComparator comparator = new PaperDatePublishComparator();
+        	Collections.sort(papers, comparator);
+        }else if(compType == "2") {
+        	PaperPageComparator comparator = new PaperPageComparator();
+        	Collections.sort(papers, comparator);
+        }
+        for(var paper : papers) {
+        	s += paper.toString() + '\n';
+        }
+        return s;
+    }
+    //----------------------------------------------------------------------------------
+    
 	public boolean equals(Object o){
 		if(this == o)return true;
 		if(o == null)return false;
@@ -115,6 +168,13 @@ public class User {
 	public int hashCode() {
 		return Objects.hash(username, birthDate, email, name, surname,password);
 	}
+
+	@Override
+	public String toString() {
+		return "User [birthDate=" + birthDate + ", phoneNumber=" + phoneNumber + ", email=" + email + ", name=" + name
+				+ ", surname=" + surname + "]";
+	}
+	
 	
 }
 

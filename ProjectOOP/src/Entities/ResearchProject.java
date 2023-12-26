@@ -4,18 +4,18 @@ import People.*;
 import java.util.*;
 
 
-public class DiplomaProject{
+public class ResearchProject{
     
     
 	private String topic;
 	
 	private Vector<User> participants;
 
-	public DiplomaProject(String topic, Vector<User> participants) {
+	public ResearchProject(String topic, Vector<User> participants) {
 		this.topic = topic;
 		this.participants = participants;
 	}
-	public DiplomaProject() {
+	public ResearchProject() {
 		
 	}
 
@@ -60,7 +60,7 @@ public class DiplomaProject{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DiplomaProject other = (DiplomaProject) obj;
+		ResearchProject other = (ResearchProject) obj;
 		return Objects.equals(participants, other.participants) && Objects.equals(topic, other.topic);
 	}
 	

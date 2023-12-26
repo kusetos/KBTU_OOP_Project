@@ -1,205 +1,105 @@
 package ResearcherStuff;
 
-import Entities.DiplomaProject;
-import people.User;
+import Entities.*;
+import Enumerators.*;
 
-public class ResearchPaper {
+import java.util.*;
+import People.*;
+
+public class ResearchPaper { //implements Cloneable
     
     /**
     * @generated
     */
     private String title;
     
-    /**
-    * @generated
-    */
-    private String abstract;
-    
-    /**
-    * @generated
-    */
     private Date datePublished;
     
-    /**
-    * @generated
-    */
-    private User authors;
+    private User author;
     
-    /**
-    * @generated
-    */
     private int pages;
     
-    /**
-    * @generated
-    */
-    private User references;
-    
-    /**
-    * @generated
-    */
     private String publisher;
     
-    /**
-    * @generated
-    */
-    private String conferenceLocation;
-    
-    
-    /**
-    * @generated
-    */
-    private DiplomaProject diplomaProject;
-    
-    
+    private String citiation;
 
-    /**
-    * @generated
-    */
-    private String getTitle() {
+
+  
+    public ResearchPaper(String title, Date datePublished, User authors, int pages, String publisher,
+			String citiation, DiplomaProject diplomaProject) {
+
+		this.title = title;
+		this.datePublished = datePublished;
+		this.author = authors;
+		this.pages = pages;
+		this.publisher = publisher;
+		this.citiation = citiation;
+
+	}
+    public ResearchPaper() {
+    	
+    }
+
+	public String getTitle() {
         return this.title;
     }
-    
-    /**
-    * @generated
-    */
-    private String setTitle(String title) {
+
+    public void setTitle(String title) {
         this.title = title;
     }
     
-    
-    /**
-    * @generated
-    */
-    private String getAbstract() {
-        return this.abstract;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setAbstract(String abstract) {
-        this.abstract = abstract;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private Date getDatePublished() {
+    public Date getDatePublished() {
         return this.datePublished;
     }
-    
-    /**
-    * @generated
-    */
-    private Date setDatePublished(Date datePublished) {
+
+    public void setDatePublished(Date datePublished) {
         this.datePublished = datePublished;
     }
-    
-    
-    /**
-    * @generated
-    */
-    private User getAuthors() {
-        return this.authors;
+
+    public User getAuthors() {
+        return this.author;
     }
-    
-    /**
-    * @generated
-    */
-    private User setAuthors(User authors) {
-        this.authors = authors;
+
+    public void setAuthors(User author) {
+        this.author = author;
     }
-    
-    
-    /**
-    * @generated
-    */
-    private int getPages() {
+   
+    public int getPages() {
         return this.pages;
     }
-    
-    /**
-    * @generated
-    */
-    private int setPages(Integer pages) {
+
+    public void setPages(Integer pages) {
         this.pages = pages;
     }
     
-    
-    /**
-    * @generated
-    */
-    private User getReferences() {
-        return this.references;
+    public String getPublisher() {
+    	return publisher;
     }
     
-    /**
-    * @generated
-    */
-    private User setReferences(User references) {
-        this.references = references;
+    public void setPublisher(String publisher) {
+    	this.publisher = publisher;
     }
-    
-    
-    /**
-    * @generated
-    */
-    private String getPublisher() {
-        return this.publisher;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    private String getConferenceLocation() {
-        return this.conferenceLocation;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setConferenceLocation(String conferenceLocation) {
-        this.conferenceLocation = conferenceLocation;
-    }
-    
-    
-    
-    /**
-    * @generated
-    */
-    public DiplomaProject getDiplomaProject() {
-        return this.diplomaProject;
-    }
-    
-    /**
-    * @generated
-    */
-    public DiplomaProject setDiplomaProject(DiplomaProject diplomaProject) {
-        this.diplomaProject = diplomaProject;
-    }
-    
-    
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public String getCitation() {
-        //TODO
-        return "";
+    public String getCitation(Format f) {
+    	
+    	 if (f == Format.PLAIN_TEXT) {
+    		   return String.format("%s, \"%s\", %s, %s.", author.toString(), title, publisher, datePublished);
+    		 } else if (f == Format.BIBTEX) {
+    		   return String.format("@misc{{citation_key, \n" +
+    		                        "  author = {{%s}}, \n" +
+    		                        "  title = {{%s}}, \n" +
+    		                        "  publisher = {{%s}}, \n" +
+    		                        "  year = {{%s}}, \n" +
+    		                        "}} \n", author.toString(), title, publisher, datePublished);
+    		 } else {
+    		   throw new IllegalArgumentException("Invalid format: " + f);
+    		 }
     }
+	@Override
+	public String toString() {
+		return "ResearchPaper [title=" + title + ", datePublished=" + datePublished.toString() + ", author=" + author.toString() + ", pages="
+				+ pages + ", publisher=" + publisher+ "]";
+	}
     
     
 }

@@ -1,11 +1,8 @@
 package People;
 
-import java.util.Date;
+import java.util.*;
 import DataBase.Data;
-import Enumerators.Faculty;
-import Enumerators.ManagerType;
-import Enumerators.Organization;
-import Enumerators.TeacherType;
+import Enumerators.*;
 
 public class Admin extends Employee{
 	

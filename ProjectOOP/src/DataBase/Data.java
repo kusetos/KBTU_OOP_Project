@@ -35,6 +35,7 @@ public class Data implements Serializable{
     	serialize(bachelorStudents, "SerializableObjects/bachelorStudents.bin");
     	serialize(graduateStudents, "SerializableObjects/graduateStudents.bin");
     	serialize(teachers, "SerializableObjects/teachers.bin");
+    	serialize(admins, "SerializableObjects/admins.bin");
     	
     	//entities
     	serialize(courses, "SerializableObjects/graduateStudents.bin");
@@ -61,6 +62,7 @@ public class Data implements Serializable{
 		messages = (Vector<Message>) deserialize("SerializableObjects/messages.bin");
 		journals = (Vector<Journal>) deserialize("SerializableObjects/journals.bin");
 		techSupports = (Vector<TechSupportSpecialist>) deserialize("SerializableObjects/techSupports.bin");
+		admins = (Vector<Admin>) deserialize("SerializableObjects/admins.bin");
 		
     }
     
@@ -163,6 +165,10 @@ public class Data implements Serializable{
     	users.add(user);
     }
     
+    public static void addAdmin(Admin admin) {
+    	admins.add(admin);
+    }
+    
     public static void addTeacher(Teacher teacher) {
     	teachers.add(teacher);
     }
@@ -189,25 +195,33 @@ public class Data implements Serializable{
     
     
     //REMOVE USERS
-    public static void removeUser(User user) {
+    public static void removeUser(User user) { //USER
     	users.remove(user);
     }
-    public static void removeTeacher(Teacher techer) {
+    
+    public static void removeTeacher(Teacher techer) {//TEACHER
     	teachers.remove(techer);
     }
-    public static void removeEmployee(Employee empl) {
+    
+    public static void removeEmployee(Employee empl) {//EMPLOYEE
     	employees.remove(empl);
     }
-    public static void removeBachelorStudents(BachelorStudent student) {
+    
+    public static void removeBachelorStudents(BachelorStudent student) {//BACHELOER STUDENT
     	bachelorStudents.remove(student);
     }
-    public static void removeManager(Manager manager) {
+    
+    public static void removeManager(Manager manager) {//MANAGER
     	managers.remove(manager);
     }
-    public static void removeTechSupport(TechSupportSpecialist techsupp) {
+    
+    public static void removeTechSupport(TechSupportSpecialist techsupp) { //TECH SUPPORT
     	techSupports.remove(techsupp);
     }
     
+    public static void removeAdmin(Admin admin) { //ADMIN
+    	admins.remove(admin);
+    }
     
 
 }
