@@ -22,6 +22,11 @@ public class Admin extends Employee{
 	public void addUser(User user) {
 		Data.addUser(user);
 	}
+	
+	public void addAdmin(Admin admin) {
+		Data.addAdmin(admin);
+	}
+	
 	public void addTeacher(Teacher teacher) {
         Data.addTeacher(teacher);
 	}
@@ -48,6 +53,10 @@ public class Admin extends Employee{
 		Data.removeUser(user);
 	}
 	
+	public void removeAdmin(Admin admin) {
+		Data.removeAdmin(admin);
+	}
+	
 	public void removeTeacher(Teacher teacher) {
 		Data.removeTeacher(teacher);
 	}
@@ -68,6 +77,7 @@ public class Admin extends Employee{
 	public void removeTechSupport(TechSupportSpecialist techSup) {
 		Data.removeTechSupport(techSup);
 	}
+	
 	
     public void viewLogs() {
         //TODO
