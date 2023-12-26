@@ -1,5 +1,6 @@
 package Entities;
 
+import java.io.*;
 import java.util.Date;
 
 import DataBase.Data;
@@ -8,7 +9,7 @@ import People.Manager;
 
 //each empolyee can send massages to each other
 
-public class Message{
+public class Message implements Serializable{
     
     private Employee recipient;
     private Employee sender;

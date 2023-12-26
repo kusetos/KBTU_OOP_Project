@@ -1,5 +1,6 @@
 package Entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import DataBase.Data;
@@ -7,7 +8,7 @@ import People.TechSupportSpecialist;
 import People.User;
 import Enumerators.ITOrderStatus;
 
-public class Order {
+public class Order implements Serializable {
     
 
 	private ITOrderStatus status;

@@ -1,11 +1,12 @@
 package People;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Vector;
 import Entities.Course;
 import Entities.Lesson;
 
-public class Teacher extends Employee {
+public class Teacher extends Employee  implements Serializable{
     
     private Vector<Course> courses;
     private Vector<Student> courseStudents;
