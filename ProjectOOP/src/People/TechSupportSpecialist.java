@@ -19,7 +19,6 @@ public class TechSupportSpecialist extends Employee {
 
     public String acceptOrder(Order order) {
         if (order.getStatus() == ITOrderStatus.NEW) {
-            order.viewStatus();
             order.setStatus(ITOrderStatus.OLD); // Установка статуса "OLD" после принятия заказа
             return "Order Accepted";
         } 

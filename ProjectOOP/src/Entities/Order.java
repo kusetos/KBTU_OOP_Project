@@ -55,8 +55,8 @@ public class Order implements Serializable {
     	return this.status;
     }
     
-    public void viewStatus() { // Watched status become OLD.
-    	this.status = ITOrderStatus.OLD;
+    public void setStatus(ITOrderStatus status) { // Watched status become OLD.
+    	this.status = status;
     }
     
     public Date getDate() {   // GETTER FOR sended TIME
