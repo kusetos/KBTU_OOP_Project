@@ -121,11 +121,14 @@ public class User {
     public double getHIndex() {
         return this.hIndex;
     }
-
-    public void setHIndex(double hIndex) {
-        this.hIndex = hIndex;
+    public void setHIndex(double i) {
+    	this.hIndex = i;
     }
-    
+
+    public double calculateHIndex() {
+    	return researchPapers.size();
+    }
+
     // GET can be Supervisor
     public boolean eligibleToBeSupervisor() { 
         if(this.hIndex > 3) return true;
@@ -150,9 +153,6 @@ public class User {
         return s;
     }
     
-    public double calculateHIndex() {
-        return this.hIndex;
-    }
 	
 	public boolean equals(Object o){
 		if(this == o)return true;
