@@ -26,6 +26,13 @@ public class Order {
     	this.sentTime = new Date();
 
     }
+    public Order(String description, User sender) {
+    	
+    	this.status = ITOrderStatus.NEW;;
+    	this.description = description;
+    	this.sentTime = new Date();
+    	this.sender = sender;
+    }
     public Order() {
     	this.status = ITOrderStatus.NEW;
     	this.sentTime = new Date();

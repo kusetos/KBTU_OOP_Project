@@ -1,52 +1,69 @@
 package Entities;
 
-import People.Student;
+import java.io.Serializable;
+import java.util.Vector;
 
-public class Mark {
-    
-    private Student student;
-    private Course course;
-    private Lesson lesson;
-    private int points;
-
-    public Mark(){}
-
-    public Mark(Student student, Course course, Lesson lesson, int points){
-        this.student = student;
-        this.course = course;
-        this.lesson = lesson;
-        this.points = points;
-    }
-    
-    //getter and setter for student
-    public Student getStudent() {
-        return this.student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-    
-    //getter and setter for course
-    public Course getCourse() {
-        return this.course;
-    }
-    
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-    
-    //getter and setter for lesson
-    public Lesson getLesson() {
-        return this.lesson;
-    }
-    
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-    }
-    
-    //getter and setter for points
-    public int getPoints() {
-        return this.points;
-    }
+public class Mark implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private Vector<Double> firstAttMarks = new Vector<Double>();
+	private Vector<Double> secondAttMarks = new Vector<Double>();
+	
+	private Double finalScore;
+	public Mark() {
+		
+	}
+	
+	public Vector<Double> getFirstAttMarks(){
+		return firstAttMarks;
+	}
+	
+	public Vector<Double> getSecondAttMarks(){
+		return secondAttMarks;
+	}
+	
+	public Double getFinalScore() {
+		return finalScore;
+	}
+	
+	public void setFinalScore(Double finalScore) {
+		this.finalScore = finalScore;
+	}
+	public void setFirstAttMarks(Vector<Double> firstAttMarks) {
+		this.firstAttMarks = firstAttMarks;
+	}
+	public void setSecondAttMarks(Vector<Double> secondAttMarks) {
+		this.secondAttMarks = secondAttMarks;
+	}
+	
+	public Double sumOfFirstAtt() {
+		Double sum = 0.0;
+		for(Double points: firstAttMarks) {
+			sum += points;
+		}
+		return sum;
+	}
+	
+	public Double sumOfSecondAtt() {
+		Double sum = 0.0;
+		for(Double points: secondAttMarks) {
+			sum += points;
+		}
+		return sum;
+	}
+	
+	public void setFirstAttMarks(Double points) {
+		if(sumOfFirstAtt() + sumOfSecondAtt() + points <= 60)firstAttMarks.add(points);
+		else System.out.println("You can't have a total of marks more than 60");
+	}
+	
+	public void setSecondAttMarks(Double points) {
+		if(sumOfFirstAtt() + sumOfSecondAtt() + points <= 60)secondAttMarks.add(points);
+		else System.out.println("You can't have a total of marks more than 60");
+	}
+	
+	public Double totalPoints() {
+		return sumOfFirstAtt() + sumOfSecondAtt() + finalScore;
+	}
+	
 }
