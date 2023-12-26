@@ -1,5 +1,7 @@
 package People;
 
+import java.util.Date;
+
 import Entities.*;
 import Entities.ResearchProject;
 import Enumerators.*;
@@ -9,9 +11,13 @@ public class GraduateStudent extends Student {
     
    private ResearchProject project;
 
-   public GraduateStudent(ResearchProject project) {
-	   super();
-	   this.project = project;
+   public GraduateStudent(String username, String password, Date birthDate, String phoneNumber, String email,
+			String name, String surname, String id, int yearOfStudy, double gpa, int creditLimit, Faculty faculty,
+			String speciality) {
+		
+		super(username, password, birthDate, phoneNumber, email, name, surname, id, yearOfStudy, gpa, creditLimit, faculty,
+				speciality);
+
    }
    public GraduateStudent(){
 	   
