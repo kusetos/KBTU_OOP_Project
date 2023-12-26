@@ -18,24 +18,18 @@ public class DiplomaProject{
 	public DiplomaProject() {
 		
 	}
+
 	
-	
+	//GET/SET Topic
 	public String getTopic() {
 		return topic;
 	}
-
-
-
-
 
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
 
-
-
-
-
+	//GTE/SET participants 
 	public Vector<User> getParticipants() {
 		return participants;
 	}
