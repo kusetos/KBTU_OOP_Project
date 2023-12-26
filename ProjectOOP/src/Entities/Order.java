@@ -70,4 +70,8 @@ public class Order implements Serializable {
     	this.sender = sender;
     }
 
+    public String toString(){
+        return "Order [status " + this.status + ", description "+ this.description + ", sendTime " + this.sentTime +
+        ", sender " + this.sender + "]";
+    }
 }

@@ -8,6 +8,7 @@ import java.util.Vector;
 import DataBase.Data;
 import Entities.Course;
 import Entities.News;
+import Entities.Order;
 import Enumerators.ManagerType;
 import Comparators.StudentGPAComparator;
 import Comparators.UserNameComparator;
@@ -109,7 +110,9 @@ public class Manager extends Employee {
         }
     }
     
-    public void viewRequestsByEmployees() {
-        //TODO
+    public Vector<Order> viewRequestsByEmployees() {
+        Vector<Order> orders;
+        orders = data.getOrders();
+        return orders;
     }
 }
