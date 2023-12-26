@@ -79,7 +79,7 @@ public class Admin extends Employee{
 	}
 	
 	public void updateUser(User user) {
-		
+			
 	}
 	
     public void viewLogs() {
