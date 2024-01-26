@@ -9,7 +9,7 @@ import Enumerators.TeacherType;
 
 public class Teacher extends Employee implements Serializable{
     
-    private Vector<Course> courses;
+    private Vector<Course> courses = new Vector<Course> ();
     private Vector<Student> courseStudents;
     private String compliant;
 	private TeacherType teacherType;
@@ -57,7 +57,7 @@ public class Teacher extends Employee implements Serializable{
     
     //marking our student
     public void putMarks(Student student, Course course, double point, int typeOfPoints) {
-        for(Student c: courseStudents){
+        for(Student c: course.getCurrentStudents()){
             if (c == student) {
                 c.setPoints(course, point, typeOfPoints);
             }

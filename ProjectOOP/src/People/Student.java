@@ -115,7 +115,13 @@ public class Student extends User{
 	
 	public String getMarkOfCourse(Course course) {
 		Mark mark = marks.get(course);
+		gpa = this.convertMarkToGradePoints(mark.totalPoints());
 		if(mark == null)return null;
+		if(course.isRetake() || mark.notAllowed()) 
+			return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + 
+					"\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints() + "\n GPA: " + 
+					this.convertMarkToGradePoints(mark.totalPoints())  + "\n Grade: " + this.gpaConverter(this.convertMarkToGradePoints(mark.totalPoints()))  + 
+					"\n Course is retaked"; 
 		return course + "\n first attestation: " + mark.sumOfFirstAtt() + "\n second attestation: " + mark.sumOfSecondAtt() + 
 				"\n final score: " + mark.getFinalScore() + "\n total score: " + mark.totalPoints() + "\n GPA: " + 
 				this.convertMarkToGradePoints(mark.totalPoints())  + "\n Grade: " + this.gpaConverter(this.convertMarkToGradePoints(mark.totalPoints()))  + "\n";

@@ -2,6 +2,7 @@ package People;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Vector;
 
@@ -10,13 +11,12 @@ import Entities.Course;
 import Entities.News;
 import Entities.Order;
 import Enumerators.ManagerType;
-import Comparators.StudentGPAComparator;
-import Comparators.UserNameComparator;
+import Comparators.*;
 
 public class Manager extends Employee {
     
     private ManagerType managerType;
-    private Vector<News> news = new Vector<>();
+    public Vector<News> news = new Vector<News>();
     private Data data;
     
     //getter and setter for managerType
@@ -59,8 +59,13 @@ public class Manager extends Employee {
     }
 
     //viewing all news
-    public Vector<News> viewNews(){
-        return news;
+    public String viewNews(){
+        String s = "";
+        for(News n : news) {
+        	s += n.toString() + '\n';
+        	
+        }
+        return s;
     }
     
     //view info about student
@@ -71,8 +76,9 @@ public class Manager extends Employee {
     //view info about student sorted by gpa
     public Vector<Student> viewInfoAboutStudentsByGPA(boolean ascending) {
         Vector<Student> students;
+        Comparator<Student> studentGPAcomparator = new StudentGPAComparator();
         students = data.getStudents();
-        Collections.sort(students, StudentGPAComparator);
+        Collections.sort(students, studentGPAcomparator);
         //sorting them ascending by GPA if the boolean is true and descending if false
         if (ascending)
             return students;
@@ -86,7 +92,7 @@ public class Manager extends Employee {
     public Vector<Student> viewInfoAboutStudentsByName(boolean alphabetically) {
         Vector<Student> students;
         students = data.getStudents();
-        Collections.sort(students, UserNameComparator);
+//        Collections.sort(students, UserNameComparator);
         //sorting them alphabetically if the boolean is true and reverse if false
         if (alphabetically){
             return students;
@@ -105,7 +111,7 @@ public class Manager extends Employee {
     public Vector<Teacher> viewInfoAboutTeachersByName(Teacher teacher, boolean alphabetically) {
         Vector<Teacher> teachers;
         teachers = data.getTeacher();
-        Collections.sort(teachers, UserNameComparator);
+//        Collections.sort(teachers, UserNameComparator);
         //sorting them alphabetically if the boolean is true and reverse if false
         if (alphabetically){
             return teachers;

@@ -4,6 +4,7 @@ import java.util.*;
 
 import Comparators.*;
 import DataBase.Data;
+import Entities.News;
 import Entities.Order;
 import ResearcherStuff.*;
 
@@ -18,7 +19,7 @@ public class User {
 	
 	private boolean isResearcher = false;
 	private double hIndex;
-	private Vector<ResearchPaper> researchPapers;
+	public Vector<ResearchPaper> researchPapers = new Vector<ResearchPaper>();
 
 	public User() {
 		
@@ -30,6 +31,7 @@ public class User {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.surname = surname;
+		this.name = name;
 		this.username = username;
 	}
 	public User(String username, String password) {
@@ -105,7 +107,13 @@ public class User {
 		order.setSender(this);
 		Data.addOrder(order);
 	}
-	
+	public String viewNews() {
+		String s = "";
+		for(News n : Data.getNews()) {
+			s += n.toString() + '\n';
+		}
+		return s;
+	}
 	//RESEARCHER ---------------------------------------------------------------
 	
 	// GET/SET isResearcher

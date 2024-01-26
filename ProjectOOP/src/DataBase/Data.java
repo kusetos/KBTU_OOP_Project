@@ -8,7 +8,14 @@ import People.*;
 
 
 public class Data implements Serializable{
-    
+	private static Data instance;
+	private Data() {}
+	public static Data getInstance() {
+        if (instance == null) {
+            instance = new Data();
+        }
+        return instance;
+    }
     private static Vector<Employee>employees = new Vector<>();
     private static Vector<Student> students = new Vector<>();
     private static Vector<Teacher> teachers = new Vector<>();

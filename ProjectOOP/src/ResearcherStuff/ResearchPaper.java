@@ -6,7 +6,7 @@ import Enumerators.*;
 import java.util.*;
 import People.*;
 
-public class ResearchPaper { //implements Cloneable
+public class ResearchPaper implements Cloneable { 
     
     /**
     * @generated

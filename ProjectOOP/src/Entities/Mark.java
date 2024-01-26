@@ -9,9 +9,9 @@ public class Mark implements Serializable{
 	private Vector<Double> firstAttMarks = new Vector<Double>();
 	private Vector<Double> secondAttMarks = new Vector<Double>();
 	
-	private Double finalScore;
+	private Double finalScore = 0.0;
 	public Mark() {
-		
+ 		
 	}
 	
 	public Vector<Double> getFirstAttMarks(){
@@ -62,7 +62,11 @@ public class Mark implements Serializable{
 		else System.out.println("You can't have a total of marks more than 60");
 	}
 	
-	public Double totalPoints() {
+	public boolean notAllowed() {
+		if(sumOfFirstAtt() + sumOfSecondAtt() < 30)return true;
+		return false;
+	}
+	public Double totalPoints() { 
 		return sumOfFirstAtt() + sumOfSecondAtt() + finalScore;
 	}
 	

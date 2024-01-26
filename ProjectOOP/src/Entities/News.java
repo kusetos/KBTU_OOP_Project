@@ -69,6 +69,11 @@ public class News implements Serializable{
     		return true;
     	}
     }
+	@Override
+	public String toString() {
+		return "News [newsDate=" + newsDate.toString() + ", title=" + title + ", text=" + text + ", comments=" + comments ;
+	}
+    
     
     
     
